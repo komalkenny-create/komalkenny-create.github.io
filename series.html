@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Series - CHINA KOMAL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #fbbf24;
+            color: #1a365d;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(44, 82, 130, 0.7)) center/cover no-repeat;
+            color: white;
+            padding: 150px 5% 80px;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-banner p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        /* Products Grid */
+        .series-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 1400px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 1000px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            min-width: 0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            background: white;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+            padding: 10px;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.6) 0%, rgba(44, 82, 130, 0.4) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card:hover .product-image-overlay {
+            opacity: 1;
+        }
+
+        /* Hover button removed - animation effects preserved */
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-info h3 {
+            color: #1a365d;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: #718096;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 0.7rem;
+        }
+
+        .product-link {
+            color: #E85D3F;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-link:hover {
+            color: #d44f2b;
+        }
+
+        /* Back Button */
+        .back-section {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .btn-back {
+            background: white;
+            color: #1a365d;
+            border: 2px solid #1a365d;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #1a365d;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a365d;
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e0;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2c5282;
+            color: #cbd5e0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-banner h1 {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index-en.html" class="logo">CHINA KOMAL</a>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="index-en.html#news">News</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index-en.html#about">About Us</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+        <div class="user-menu">
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                 Cart
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <section class="page-banner" id="pageBanner">
+        <h1 id="seriesTitle">Loading...</h1>
+        <p id="seriesDescription">Loading description...</p>
+        <div class="breadcrumb">
+            <a href="index-en.html">Home</a> / 
+            <a href="index-en.html#products">Products</a> / 
+            <span id="seriesBreadcrumb">Series</span>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="series-container">
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded here -->
+        </div>
+
+        <!-- Back Button -->
+        <div class="back-section">
+            <a href="index-en.html#products" class="btn-back">← Back to All Products</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p> kenny@chinakomal.com</p>
+                <p> +86-10-xxxx-xxxx</p>
+                <p> No. xxx, xxx Road, Chaoyang District, Beijing, China</p>
+            </div>
+            <div>
+                <h3>Product Series</h3>
+                <a href="series.html?s=petroleum">Drilling Equipment</a>
+                <a href="series.html?s=solids">Solids Control System</a>
+                <a href="product-mud-pump.html">Mud Pump</a>
+                <a href="product-mud-pump-parts.html">Mud Pump Parts</a>
+                <a href="series.html?s=shaker">Shaker Screen</a>
+                <a href="series.html?s=pump">High Pressure Pump</a>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="index-en.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Series Data
+        const seriesData = {
+            'petroleum': {
+                title: ' Drilling Equipment',
+                description: 'Complete drilling rig equipment and components for oil & gas exploration. Our comprehensive range includes truck mounted drilling rigs, workover rigs, crown blocks, traveling blocks, hooks, swivels, rotary tables, mud pumps, elevators, and various drilling rig parts.',
+                color: 'linear-gradient(135deg, #1a365d 0%, #2c5282 100%)',
+                banner: 'images/drilling equipment banner.jpeg',
+                icon: '',
+                products: [
+                    { id: 'truck-mounted-rig', name: 'Truck Mounted Drilling Rig', icon: '', img: 'images/XJ750.png', desc: 'Mobile drilling rig mounted on truck chassis for quick deployment' },
+                    { id: 'workover-rig', name: 'Workover Rig', icon: '', img: 'images/drilling equipment/2.png', desc: 'Rig for well maintenance, repair and workover operations' },
+                    { id: 'crown-block', name: 'Crown Block', icon: '', img: 'images/drilling equipment/3.png', desc: 'Heavy-duty crown block assembly with multiple sheaves for drilling rigs' },
+                    { id: 'traveling-block', name: 'Traveling Block', icon: '', img: 'images/drilling equipment/4.png', desc: 'High-capacity traveling block with hook assembly for hoisting operations' },
+                    { id: 'hook', name: 'Hook', icon: '🪝', img: 'images/drilling equipment/5.png', desc: 'Heavy-duty drilling hook with safety latch for load suspension' },
+                    { id: 'swivel', name: 'Swivel', icon: '', img: 'images/drilling equipment/6.png', desc: 'High-pressure swivel for drilling fluid circulation and rotation' },
+                    { id: 'rotary-table', name: 'Rotary Table', icon: '', img: 'images/drilling equipment/7.png', desc: 'Precision rotary table for drill string rotation and torque transmission' },
+                    { id: 'winch', name: 'Winch', icon: '', desc: 'Powerful winch system for lifting and pulling operations' },
+                    { id: 'mud-pump', name: 'Mud Pump', icon: '', desc: 'High-pressure mud pump for drilling fluid circulation' },
+                    { id: 'elevator-links', name: 'Elevator Links', icon: '', desc: 'Strong links for connecting elevators to traveling block' },
+                    { id: 'drilling-hose', name: 'Drilling Hose and Fittings', icon: '', desc: 'High-pressure drilling hose with fittings for fluid transfer' },
+                    { id: 'drilling-line', name: 'Drilling Line', icon: '🪢', desc: 'Steel wire rope drilling line for hoisting systems' },
+                    { id: 'wire-rope-sling', name: 'Wire Rope Sling', icon: '', desc: 'Wire rope slings for lifting and rigging applications' },
+                    { id: 'wheels-tires', name: 'Wheels and Tires', icon: '', desc: 'Heavy-duty wheels and tires for drilling rig equipment' },
+                    { id: 'vehicle-axle', name: 'Vehicle Axle/Transmission Shaft', icon: '', desc: 'Axle and transmission shafts for rig vehicles' },
+                    { id: 'drilling-chain', name: 'Chain for Drilling Rig', icon: '', desc: 'Heavy-duty chains for drilling rig applications' },
+                    { id: 'eaton-brake', name: 'Eaton Brake', icon: '', desc: 'Eaton air tube clutch brake for drawworks' },
+                    { id: 'hydraulic-cylinder', name: 'Hydraulic Cylinders', icon: '', desc: 'Hydraulic cylinders for various rig operations' }
+                ]
+            },
+            'solids': {
+                title: ' Solids Control System',
+                description: 'Complete solids control solutions for drilling fluid treatment. Our comprehensive range includes shale shakers, desanders, desilters, centrifuges, mud cleaners, degassers, agitators, pumps and auxiliary equipment.',
+                color: 'linear-gradient(135deg, #2c5282 0%, #17A589 100%)',
+                banner: 'images/solids control banner.jpeg',
+                icon: '',
+                products: [
+                    { id: 'shale-shaker', name: 'Shale Shaker', icon: '', desc: 'Primary solids removal with multi-deck vibratory screening', img: 'images/products/solids-control-product-1.png' },
+                    { id: 'mud-cleaner', name: 'Mud Cleaner', icon: '', desc: 'Integrated shaker and hydrocyclone system for efficient cleaning', img: 'images/products/solids-control-product-2.png' },
+                    { id: 'desander', name: 'Desander', icon: '', desc: 'Hydrocyclone desander for medium solids removal (44-74 microns)', img: 'images/products/solids-control-product-3.png' },
+                    { id: 'desilter', name: 'Desilter', icon: '', desc: 'Hydrocyclone desilter for fine solids removal (15-44 microns)', img: 'images/products/solids-control-product-4.png' },
+                    { id: 'decanter-centrifuge', name: 'Decanter Centrifuge', icon: '', desc: 'High-speed centrifuge for ultra-fine solids separation', img: 'images/products/solids-control-product-5.png' },
+                    { id: 'screw-pump', name: 'Screw Pump', icon: '', desc: 'Progressive cavity pump for viscous fluid transfer', img: 'images/products/solids-control-product-6.png' },
+                    { id: 'centrifugal-degasser', name: 'Centrifugal Degasser', icon: '', desc: 'Remove entrained gas from drilling fluid using centrifugal force', img: 'images/products/solids-control-product-7.png' },
+                    { id: 'vacuum-degasser', name: 'Vacuum Degasser', icon: '', desc: 'Vacuum chamber degassing for efficient gas removal', img: 'images/products/solids-control-product-8.png' },
+                    { id: 'vertical-agitator', name: 'Vertical Agitator', icon: '', desc: 'Vertical mixing for uniform drilling fluid in tanks', img: 'images/products/solids-control-product-9.png' },
+                    { id: 'horizontal-agitator', name: 'Horizontal Agitator', icon: '', desc: 'Horizontal mixing for drilling fluid circulation', img: 'images/products/solids-control-product-10.png' },
+                    { id: 'mixing-hopper', name: 'Mixing Hopper', icon: '', desc: 'Venturi hopper for quick chemical addition', img: 'images/products/solids-control-product-11.png' },
+                    { id: 'mud-gun', name: 'Mud Gun', icon: '', desc: 'High-pressure nozzle for tank bottom cleaning', img: 'images/products/solids-control-product-12.png' },
+                    { id: 'centrifugal-pump', name: 'Centrifugal Pump', icon: '', desc: 'Standard centrifugal pump for fluid transfer', img: 'images/products/solids-control-product-13.png' },
+                    { id: 'submersible-slurry-pump', name: 'Submersible Slurry Pump', icon: '', desc: 'Submersible pump for solids-laden fluids', img: 'images/products/solids-control-product-14.png' },
+                    { id: 'shear-pump', name: 'Shear Pump', icon: '', desc: 'High-shear pump for viscosity control and mixing', img: 'images/products/solids-control-product-15.png' },
+                    { id: 'mud-gas-separator', name: 'Mud Gas Separator', icon: '', desc: 'Separate formation gas from drilling mud', img: 'images/products/solids-control-product-16.png' },
+                    { id: 'vertical-cutting-dryer', name: 'Vertical Cutting Dryer', icon: '', desc: 'Mechanical dryer for drill cuttings treatment', img: 'images/products/solids-control-product-17.png' },
+                    { id: 'screw-conveyor', name: 'Screw Conveyor', icon: '', desc: 'Auger conveyor for cuttings and solids transport', img: 'images/products/solids-control-product-18.png' },
+                    { id: 'pneumatic-vacuum-pump', name: 'Pneumatic Vacuum Pump', icon: '', desc: 'Air-powered vacuum transfer for fluids and solids', img: 'images/products/solids-control-product-19.png' }
+                ]
+            },
+            'mud-pump': {
+                title: ' Mud Pump Parts',
+                description: 'High-quality replacement parts for drilling mud pumps including Gardner Denver PZ series. Our comprehensive range includes complete pump models (PZ7, PZ8, PZ9, PZ10, PZ11), intermediate rods, piston rods, piston assemblies, valve bodies, fluid ends, and cylinder liners.',
+                color: 'linear-gradient(135deg, #B85C3E 0%, #E85D3F 100%)',
+                banner: 'images/mud pump parts banner.jpeg',
+                icon: '',
+                products: [
+                    { id: 'gardner-denver-pz11', name: 'Gardner Denver PZ11', icon: '', desc: 'Triplex mud pump - 1,225 HP, 7,500 psi maximum pressure', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-pz10', name: 'Gardner Denver PZ10', icon: '', desc: 'Triplex mud pump - 1,000 HP, 6,000 psi maximum pressure', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-pz9', name: 'Gardner Denver PZ9', icon: '', desc: 'Triplex mud pump - 800 HP, 5,000 psi maximum pressure', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-pz8', name: 'Gardner Denver PZ8', icon: '', desc: 'Triplex mud pump - 700 HP, 4,500 psi maximum pressure', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-pz7', name: 'Gardner Denver PZ7', icon: '', desc: 'Triplex mud pump - 600 HP, 4,000 psi maximum pressure', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-tge', name: 'Gardner Denver TGE', icon: '', desc: 'Triplex mud pump - 4×5 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-py7', name: 'Gardner Denver PY7', icon: '', desc: 'Triplex mud pump - 7×7 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-pah', name: 'Gardner Denver PAH', icon: '', desc: 'Triplex mud pump - 5×8 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-fq', name: 'Gardner Denver FQ', icon: '', desc: 'Triplex mud pump - 7-3/4 x 16 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-fk', name: 'Gardner Denver FK', icon: '', desc: 'Triplex mud pump - 7-1/4 x 14 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'gardner-denver-fy', name: 'Gardner Denver FY', icon: '', desc: 'Triplex mud pump - 7-1/2 x 10 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'ideco-t1600', name: 'IDECO T1600', icon: '', desc: 'Triplex mud pump - 7-1/2 x 12 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'oilwell-a1700pt', name: 'OIL WELL A1700PT', icon: '', desc: 'Triplex mud pump - 7-1/2 x 12 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'oilwell-a1700pt-l', name: 'OIL WELL A1700PT-L', icon: '', desc: 'Triplex mud pump - "L" shaped configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'emsco-fb1600', name: 'EMSCO FB1600', icon: '', desc: 'Triplex mud pump - 7-1/2 x 12 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'opi-700hdl', name: 'OPI 700HDL', icon: '', desc: 'Triplex mud pump - 7×8 liner configuration', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'intermediate-rod', name: 'Intermediate Rod / Crosshead Pin', icon: '', desc: '35CrMo alloy steel with chrome plating and precision grinding', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'piston-rod', name: 'Piston Rod', icon: '', desc: 'Alloy steel heat-treated with multiple surface treatment options', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'piston-assembly', name: 'Piston Assembly', icon: '', desc: '42CrMo alloy steel + NBR/PU rubber, API 7K compliant', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'valve-body-seat', name: 'Valve Body & Valve Seat', icon: '', desc: 'Alloy steel with NBR/PU sealing element and high-carbon steel spring', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'fluid-end', name: 'Fluid End / Valve Chest', icon: '', desc: '35CrMo or 40CrMnMo forged alloy steel, API 7K compliant', img: 'images/mud pump parts banner.jpeg' },
+                    { id: 'cylinder-liner', name: 'Cylinder Liner', icon: '', desc: 'Bi-metal, single-metal, and ceramic types available', img: 'images/mud pump parts banner.jpeg' }
+                ]
+            },
+            'shaker': {
+                title: ' Shaker Screen',
+                description: 'Premium replacement screens for all major shaker brands. Stainless steel wire mesh, pyramid screens, steel frame screens, composite screens, slotted liners, wire-wrapped screens, and packing materials available.',
+                color: 'linear-gradient(135deg, #17A589 0%, #145A32 100%)',
+                banner: 'images/shaker screens banner banner.jpeg',
+                icon: '',
+                products: [
+                    { id: 'stainless-steel-mesh', name: 'Stainless Steel Wire Mesh', icon: '', desc: '19 specifications from Mesh 2 to 325, SUS304/316L material', img: 'images/products/solids-control-product-1.png' },
+                    { id: 'pyramid-screen', name: 'Pyramid Screen', icon: '', desc: 'Wave type design with 120-150% increased filtering area', img: 'images/products/solids-control-product-2.png' },
+                    { id: 'steel-frame-screen', name: 'Steel Frame Screen', icon: '', desc: 'High-strength steel frame construction, API 20-325', img: 'images/products/solids-control-product-3.png' },
+                    { id: 'composite-screen', name: 'Composite Screen', icon: '', desc: '2-4 layers without steel backing plate, lightweight design', img: 'images/products/solids-control-product-4.png' },
+                    { id: 'slotted-liner', name: 'Slotted Liner', icon: '', desc: 'API RP 13C compliant, burr-free uniform slots', img: 'images/products/solids-control-product-5.png' },
+                    { id: 'wire-wrapped-screen', name: 'Wire-Wrapped Screen', icon: '', desc: 'T-shape self-cleaning design, min. 0.1mm slot', img: 'images/products/solids-control-product-6.png' },
+                    { id: 'packing', name: 'Packing Materials', icon: '', desc: 'Bulk & structured packing, metal & plastic materials', img: 'images/products/solids-control-product-7.png' }
+                ]
+            },
+            'pump': {
+                title: ' High Pressure Pump',
+                description: 'Industrial high-pressure pumps for various applications. Triplex, quintuplex, water jet, fracturing, and cementing pumps available.',
+                color: 'linear-gradient(135deg, #5DADE2 0%, #2E86C1 100%)',
+                banner: 'images/high pressure pump banner.jpeg',
+                icon: '',
+                products: [
+                    { id: 'high-pressure-pump', name: 'Triplex Pump', icon: '', desc: 'High-pressure triplex plunger pumps for water jetting', img: 'images/high pressure pump banner.jpeg' },
+                    { id: 'high-pressure-pump', name: 'Quintuplex Pump', icon: '', desc: 'Five-cylinder pumps for ultra-high pressure applications', img: 'images/high pressure pump banner.jpeg' },
+                    { id: 'high-pressure-pump', name: 'Water Jet Pump', icon: '', desc: 'Specialized pumps for hydro-blasting and cleaning', img: 'images/high pressure pump banner.jpeg' },
+                    { id: 'high-pressure-pump', name: 'Fracturing Pump', icon: '', desc: 'Heavy-duty pumps for hydraulic fracturing operations', img: 'images/high pressure pump banner.jpeg' },
+                    { id: 'high-pressure-pump', name: 'Cementing Pump', icon: '', desc: 'High-pressure pumps for well cementing services', img: 'images/high pressure pump banner.jpeg' }
+                ]
+            }
+        };
+
+        function loadSeries() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const seriesId = urlParams.get('s') || 'petroleum';
+            const series = seriesData[seriesId] || seriesData['petroleum'];
+
+            document.getElementById('seriesTitle').textContent = series.title;
+            document.getElementById('seriesDescription').textContent = series.description;
+            document.getElementById('seriesBreadcrumb').textContent = series.title.replace(/^[^\s]+\s/, '');
+            document.getElementById('pageBanner').style.backgroundImage = `linear-gradient(rgba(26, 54, 93, 0.7), rgba(44, 82, 130, 0.7)), url('${series.banner}')`;
+
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = series.products.map(product => `
+                <div class="product-card" onclick="window.location.href='product-${product.id}.html'">
+                    <div class="product-image" style="background: ${series.color}">
+                        ${product.img ? `<img src="${product.img}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: contain;">` : product.icon}
+                        <div class="product-image-overlay"></div>
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.desc}</p>
+                        <a href="product-${product.id}.html" class="product-link">Learn More →</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const cart = localStorage.getItem('komalCart');
+            if (cart) {
+                const cartItems = JSON.parse(cart);
+                const count = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+                document.getElementById('cartCount').textContent = count;
+            }
+        }
+
+        // Initialize
+        loadSeries();
+        updateCartCount();
+    </script>
+</body>
+</html>

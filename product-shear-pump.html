@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shear Pump - Solids Control System | CHINA KOMAL</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        .navbar { background: #1a365d; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #fbbf24; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #fbbf24; }
+        .breadcrumb { background: white; padding: 1rem 5%; border-bottom: 1px solid #e2e8f0; }
+        .breadcrumb a { color: #2c5282; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #718096; margin: 0 0.5rem; }
+        .product-main { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; }
+        .product-image img { width: 100%; height: 500px; object-fit: contain; display: block; }
+        .product-info h2 { color: #1a365d; font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .product-info .price { font-size: 1.5rem; color: #2c5282; font-weight: bold; margin-bottom: 1.5rem; }
+        .product-info .description { color: #4a5568; line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.9rem; }
+        .product-features { background: white; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .product-features h3 { color: #2c5282; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .feature-list { list-style: none; }
+        .feature-list li { padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list li::before { content: ""; color: #17A589; font-weight: bold; font-size: 1rem; }
+        .specifications { background: #f7fafc; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; overflow-x: auto; }
+        .specifications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; min-width: 800px; }
+        .spec-table thead th { background: #2c5282; color: white; font-weight: 700; padding: 0.4rem 0.3rem; text-align: left; border-bottom: 2px solid #1a365d; }
+        .spec-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+        .spec-table tbody tr:nth-child(even) { background: #edf2f7; }
+        .spec-table tbody tr:nth-child(odd) { background: white; }
+        .spec-table tbody td { padding: 0.3rem 0.25rem; } text-align: center; }
+        .spec-table tbody td:first-child { font-weight: 600; color: #2c5282; text-align: left; width: 20%; }
+        .models-section { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .models-section h3 { color: #2c5282; margin-bottom: 1rem; font-size: 1.4rem; }
+        .model-card { background: #f7fafc; border-left: 4px solid #17A589; padding: 1rem; margin-bottom: 0.5rem; border-radius: 0 8px 8px 0; }
+        .model-card h4 { color: #1a365d; margin-bottom: 0.4rem; font-size: 1.15rem; }
+        .model-card p { color: #4a5568; margin-bottom: 0.35rem; }
+        .applications { background: linear-gradient(135deg, #ebf8ff 0%, #f0fff4 100%); border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; }
+        .applications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .applications ul { padding-left: 1.2rem; color: #2d3748; font-size: 0.85rem; }
+        .applications li { margin-bottom: 0.25rem; }
+        .cta-section { text-align: center; background: #1a365d; color: white; padding: 3rem 2rem; border-radius: 12px; margin-top: 3rem; }
+        .cta-section h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .cta-section p { margin-bottom: 2rem; opacity: 0.9; }
+        .btn { display: inline-block; background: #fbbf24; color: #1a365d; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s; margin: 0.5rem; }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-outline { background: transparent; border: 2px solid #fbbf24; color: #fbbf24; }
+        .btn-outline:hover { background: #fbbf24; color: #1a365d; }
+        footer { background: #1a365d; color: white; padding: 3rem 5%; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-section h4 { color: #fbbf24; margin-bottom: 1rem; font-size: 1.2rem; }
+        .footer-section p, .footer-section a { color: #e2e8f0; line-height: 1.8; text-decoration: none; display: block; }
+        .footer-section a:hover { color: #fbbf24; }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #a0aec0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CHINA <span>KOMAL</span></div>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="index-en.html#about">About</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="breadcrumb"><a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=solids">Solids Control System</a><span>›</span><strong>Shear Pump</strong></div>
+    <main class="product-main">
+        <div class="product-grid">
+            <div class="product-image"><img src="images/products/shear-pump-01.jpg" alt="Shear Pump"></div>
+            <div class="product-info">
+                <h2>Shear Pump</h2>
+                <p class="price">Professional Solids Control Equipment</p>
+                <p class="description">
+                    CHINA KOMAL shear pump is professional solids control equipment designed for oil and gas drilling operations. 
+                    Featuring high-quality construction and reliable performance, it provides efficient solids control 
+                    for drilling fluid systems in demanding drilling conditions.
+                </p>
+            </div>
+        </div>
+        <section class="models-section">
+            <h3>Available Models</h3>
+            <div class="model-card">
+                <h4>KB Series</h4>
+                <p><strong>Models:</strong> KB-80, KB-100, KB-120</p>
+                <p><strong>Capacity:</strong> 80-120 m³/h (352-528 gpm)</p>
+            </div>
+        </section>
+        <section class="product-features">
+            <h3>Technical Features</h3>
+            <ul class="feature-list">
+                <li><strong>High quality and reliability</strong> - Consistent performance</li>
+                <li><strong>Replaceable parts</strong> - All parts replaceable except pump shell and impeller</li>
+                <li><strong>Compact structure</strong> - Small vibration, low noise, stable and reliable performance</li>
+                <li><strong>Long service life</strong> - Cast iron alloy, high abrasion resistance</li>
+                <li><strong>Mechanical seal structure</strong> - No leakage, wear resistance, long service life</li>
+                <li><strong>Forging casting</strong> - Shell and impeller forging casting, strong environmental adaptability</li>
+                <li><strong>Higher loading bearing</strong> - Long service life</li>
+            </ul>
+        </section>
+        <section class="specifications">
+            <h3>Technical Parameters</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>KB-80</th>
+                        <th>KB-100</th>
+                        <th>KB-120</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Capacity</td><td>80 (352 gpm)</td><td>100 (440 gpm)</td><td>120 (528 gpm)</td></tr>
+                    <tr><td>Lift (m)</td><td>36</td><td>40</td><td>45</td></tr>
+                    <tr><td>Efficiency</td><td>95%</td><td>95%</td><td>95%</td></tr>
+                    <tr><td>Motor Power</td><td>37kw (50hp)</td><td>45kw (60hp)</td><td>55kw (75hp)</td></tr>
+                    <tr><td>Impeller Speed</td><td colspan="3">2200 rpm</td></tr>
+                    <tr><td>Inlet/Outlet Diameter</td><td colspan="3">6 / 5 inch</td></tr>
+                    <tr><td>Weight</td><td>700 kg</td><td>760 kg</td><td>850 kg</td></tr>
+                    <tr><td>Dimension (mm)</td><td>1030×995×1440</td><td>1030×995×1440</td><td>1065×995×1470</td></tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="applications">
+            <h3>Applications</h3>
+            <ul>
+                <li>High shear mixing - Create high shear rates for fluid mixing</li>
+                <li>Mud processing - Break down solids and mix additives</li>
+                <li>Fluid circulation - Maintain mud properties</li>
+                <li>High efficiency transfer - 95% efficiency for energy savings</li>
+            </ul>
+        </section>
+        <section class="cta-section">
+            <h3>Interested in Shear Pump?</h3>
+            <p>Contact us for detailed specifications, pricing, and customized solutions</p>
+            <a href="index-en.html#contact" class="btn">Request Quote</a>
+            <a href="series.html?s=solids" class="btn btn-outline">View More Products</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h4>CHINA KOMAL</h4><p>CHINA KOMAL INTERNATIONAL CO., LTD</p><p>Professional petroleum equipment manufacturer</p></div>
+            <div class="footer-section"><h4>Quick Links</h4><a href="index-en.html">Home</a><a href="index-en.html#products">Products</a><a href="index-en.html#about">About Us</a><a href="index-en.html#contact">Contact</a></div>
+            <div class="footer-section"><h4>Contact Us</h4><p>Email: info@chinakomal.com</p><p>Website: www.chinakomal.com</p><p>Location: Beijing, China</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
+    </footer>
+</body>
+</html>

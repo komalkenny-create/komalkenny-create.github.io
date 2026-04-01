@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CHINA KOMAL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f7fafc;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(44, 82, 130, 0.7)), url('images/offshore-worker.jpg') center/cover no-repeat;
+            color: white;
+            padding: 80px 5% 40px;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .secure-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Checkout Section */
+        .checkout-section {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Forms */
+        .checkout-form {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .form-section-title {
+            font-size: 1.3rem;
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group label span {
+            color: #e53e3e;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1a365d;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .order-summary h2 {
+            font-size: 1.3rem;
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .order-items {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-item-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            border-radius: 8px;
+        }
+
+        .order-item-info {
+            flex: 1;
+        }
+
+        .order-item-info h4 {
+            color: #2d3748;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .order-item-info p {
+            color: #718096;
+            font-size: 0.85rem;
+        }
+
+        .order-item-price {
+            color: #E85D3F;
+            font-weight: bold;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            color: #4a5568;
+        }
+
+        .summary-row.total {
+            border-top: 2px solid #e2e8f0;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2d3748;
+        }
+
+        .summary-row.total .amount {
+            color: #E85D3F;
+            font-size: 1.4rem;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            margin-top: 1.5rem;
+        }
+
+        .payment-option {
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-option:hover {
+            border-color: #1a365d;
+        }
+
+        .payment-option.selected {
+            border-color: #1a365d;
+            background: #f7fafc;
+        }
+
+        .payment-option-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .payment-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+        }
+
+        .payment-option-label {
+            font-weight: 600;
+            color: #2d3748;
+            flex: 1;
+        }
+
+        .payment-option-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Place Order Button */
+        .btn-place-order {
+            width: 100%;
+            background: #E85D3F;
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-place-order:hover {
+            background: #d44f2b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 93, 63, 0.4);
+        }
+
+        .btn-place-order:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Trust Badges */
+        .trust-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .trust-badge {
+            background: #f7fafc;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .success-modal {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-modal h2 {
+            color: #1a365d;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-modal p {
+            color: #718096;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .order-number {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .order-number-label {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .order-number-value {
+            color: #1a365d;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .btn-back-home {
+            background: #fbbf24;
+            color: #1a365d;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-back-home:hover {
+            background: #f6a81c;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a365d;
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e0;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2c5282;
+            color: #cbd5e0;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">CHINA KOMAL</div>
+    </nav>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1> Secure Checkout</h1>
+        <div class="secure-badge">
+             SSL Encrypted & Secure Payment
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="checkout-grid">
+            <!-- Checkout Forms -->
+            <div>
+                <!-- Contact Information -->
+                <div class="checkout-form">
+                    <h2 class="form-section-title"> Contact Information</h2>
+                    <div class="form-group">
+                        <label>Email Address <span>*</span></label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number <span>*</span></label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 123-4567" required>
+                    </div>
+                </div>
+
+                <!-- Shipping Address -->
+                <div class="checkout-form">
+                    <h2 class="form-section-title"> Shipping Address</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name <span>*</span></label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name <span>*</span></label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" id="company" placeholder="Your company name">
+                    </div>
+                    <div class="form-group">
+                        <label>Street Address <span>*</span></label>
+                        <input type="text" id="address1" placeholder="123 Main Street" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Apartment, suite, etc. (optional)</label>
+                        <input type="text" id="address2" placeholder="Apt 4B">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City <span>*</span></label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label>State/Province <span>*</span></label>
+                            <input type="text" id="state" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Postal Code <span>*</span></label>
+                            <input type="text" id="postalCode" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Country <span>*</span></label>
+                            <select id="country" required>
+                                <option value="">Select Country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="AU">Australia</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="IT">Italy</option>
+                                <option value="ES">Spain</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="BR">Brazil</option>
+                                <option value="MX">Mexico</option>
+                                <option value="SG">Singapore</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="CN">China</option>
+                                <option value="OTHER">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="checkout-form">
+                    <h2 class="form-section-title"> Payment Method</h2>
+                    <div class="payment-methods">
+                        <div class="payment-option selected" onclick="selectPayment(this, 'wire')">
+                            <div class="payment-option-header">
+                                <input type="radio" name="payment" value="wire" checked>
+                                <span class="payment-option-label"> Bank Wire Transfer</span>
+                                <span class="payment-option-icon"></span>
+                            </div>
+                            <p style="color: #718096; font-size: 0.85rem; margin-top: 0.5rem; padding-left: 2rem;">
+                                Direct bank transfer. Bank details will be provided after order confirmation.
+                            </p>
+                        </div>
+                        <div class="payment-option" onclick="selectPayment(this, 'paypal')">
+                            <div class="payment-option-header">
+                                <input type="radio" name="payment" value="paypal">
+                                <span class="payment-option-label"> PayPal</span>
+                                <span class="payment-option-icon"></span>
+                            </div>
+                        </div>
+                        <div class="payment-option" onclick="selectPayment(this, 'card')">
+                            <div class="payment-option-header">
+                                <input type="radio" name="payment" value="card">
+                                <span class="payment-option-label"> Credit/Debit Card</span>
+                                <span class="payment-option-icon"></span>
+                            </div>
+                            <p style="color: #718096; font-size: 0.85rem; margin-top: 0.5rem; padding-left: 2rem;">
+                                Visa, MasterCard, American Express accepted
+                            </p>
+                        </div>
+                        <div class="payment-option" onclick="selectPayment(this, 'letter')">
+                            <div class="payment-option-header">
+                                <input type="radio" name="payment" value="letter">
+                                <span class="payment-option-label"> Letter of Credit (L/C)</span>
+                                <span class="payment-option-icon"></span>
+                            </div>
+                            <p style="color: #718096; font-size: 0.85rem; margin-top: 0.5rem; padding-left: 2rem;">
+                                For large orders. Bank guarantee of payment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="checkout-form">
+                    <h2 class="form-section-title"> Additional Information (Optional)</h2>
+                    <div class="form-group">
+                        <label>Order Notes</label>
+                        <textarea id="notes" placeholder="Special instructions, delivery requirements, etc."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div class="order-items" id="orderItems">
+                    <!-- Items will be loaded here -->
+                </div>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span class="amount" id="subtotal">$0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span class="amount" id="shipping">To be calculated</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax</span>
+                    <span class="amount" id="tax">To be calculated</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span class="amount" id="total">$0</span>
+                </div>
+                <button class="btn-place-order" onclick="placeOrder()">
+                     Place Order
+                </button>
+                <div class="trust-section">
+                    <div class="trust-badges">
+                        <span class="trust-badge"> SSL Secure</span>
+                        <span class="trust-badge"> Buyer Protection</span>
+                        <span class="trust-badge"> Fraud Protection</span>
+                        <span class="trust-badge"> Money Back</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="success-modal">
+            <div class="success-icon"></div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for your order! We have received your order and will contact you within 24 hours to confirm the details and arrange shipment.</p>
+            <div class="order-number">
+                <div class="order-number-label">Order Number</div>
+                <div class="order-number-value" id="orderNumber">KOMAL-2026-000000</div>
+            </div>
+            <p style="font-size: 0.9rem;">A confirmation email has been sent to your email address.</p>
+            <a href="index-en.html" class="btn-back-home">← Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p> kenny@chinakomal.com</p>
+                <p> +86-10-xxxx-xxxx</p>
+                <p> No. xxx, xxx Road, Chaoyang District, Beijing, China</p>
+            </div>
+            <div>
+                <h3>Product Series</h3>
+                <a href="#">Drilling Equipment</a>
+                <a href="#">Solids Control System</a>
+                <a href="#">Mud Pump Parts</a>
+                <a href="#">Shaker Screen</a>
+                <a href="#">High Pressure Pump</a>
+            </div>
+            <div>
+                <h3>About Us</h3>
+                <a href="#">Company Profile</a>
+                <a href="#">Certificates</a>
+                <a href="#">News</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cart and checkout functionality
+        function getCart() {
+            const cart = localStorage.getItem('komalCart');
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function parsePrice(priceStr) {
+            const match = priceStr.match(/\$([\d,]+)/);
+            if (match) {
+                return parseFloat(match[1].replace(/,/g, ''));
+            }
+            return 0;
+        }
+
+        function formatPrice(price) {
+            return '$' + price.toLocaleString();
+        }
+
+        function selectPayment(element, method) {
+            document.querySelectorAll('.payment-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            element.classList.add('selected');
+            element.querySelector('input[type="radio"]').checked = true;
+        }
+
+        function renderOrderSummary() {
+            const cart = getCart();
+            const orderItems = document.getElementById('orderItems');
+
+            if (cart.length === 0) {
+                orderItems.innerHTML = '<p style="color: #718096; text-align: center; padding: 2rem;">Your cart is empty</p>';
+                document.getElementById('subtotal').textContent = '$0';
+                document.getElementById('total').textContent = '$0';
+                return;
+            }
+
+            let html = '';
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                const itemPrice = parsePrice(item.price);
+                const itemTotal = itemPrice * item.quantity;
+                subtotal += itemTotal;
+
+                html += `
+                    <div class="order-item">
+                        <div class="order-item-icon">${item.icon || ''}</div>
+                        <div class="order-item-info">
+                            <h4>${item.title}</h4>
+                            <p>Qty: ${item.quantity}</p>
+                        </div>
+                        <div class="order-item-price">${formatPrice(itemTotal)}</div>
+                    </div>
+                `;
+            });
+
+            orderItems.innerHTML = html;
+            document.getElementById('subtotal').textContent = formatPrice(subtotal);
+            document.getElementById('total').textContent = formatPrice(subtotal);
+        }
+
+        function generateOrderNumber() {
+            const year = new Date().getFullYear();
+            const random = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            return `KOMAL-${year}-${random}`;
+        }
+
+        function placeOrder() {
+            // Validate form
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const address1 = document.getElementById('address1').value;
+            const city = document.getElementById('city').value;
+            const country = document.getElementById('country').value;
+
+            if (!email || !phone || !firstName || !lastName || !address1 || !city || !country) {
+                alert('Please fill in all required fields marked with *');
+                return;
+            }
+
+            const cart = getCart();
+            if (cart.length === 0) {
+                alert('Your cart is empty');
+                return;
+            }
+
+            // Generate order number
+            const orderNumber = generateOrderNumber();
+            document.getElementById('orderNumber').textContent = orderNumber;
+
+            // Clear cart
+            localStorage.removeItem('komalCart');
+
+            // Show success modal
+            document.getElementById('successModal').classList.add('show');
+
+            // In a real implementation, you would:
+            // 1. Send order data to server
+            // 2. Process payment
+            // 3. Send confirmation email
+            // 4. Create order record in database
+        }
+
+        // Initialize
+        renderOrderSummary();
+    </script>
+</body>
+</html>

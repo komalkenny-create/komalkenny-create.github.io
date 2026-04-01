@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swivel - Drilling Equipment | CHINA KOMAL</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        .navbar { background: #1a365d; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #fbbf24; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #fbbf24; }
+        .breadcrumb { background: white; padding: 1rem 5%; border-bottom: 1px solid #e2e8f0; }
+        .breadcrumb a { color: #2c5282; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #718096; margin: 0 0.5rem; }
+        .product-main { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .product-image img { width: 100%; height: 400px; object-fit: cover; display: block; }
+        .image-gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
+        .gallery-item { border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid transparent; }
+        .gallery-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .gallery-item.active { border-color: #2c5282; }
+        .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; transition: opacity 0.3s; }
+        .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; }
+        .product-image img { width: 100%; height: 500px; object-fit: contain; display: block; transition: opacity 0.3s; }
+        .product-info h2 { color: #1a365d; font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .product-info .price { font-size: 1.5rem; color: #2c5282; font-weight: bold; margin-bottom: 1.5rem; }
+        .product-info .description { color: #4a5568; line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.9rem; }
+        .product-features { background: white; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .product-features h3 { color: #2c5282; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .feature-list { list-style: none; }
+        .feature-list li { padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list li::before { content: ""; color: #17A589; font-weight: bold; font-size: 1rem; }
+        .specifications { background: #f7fafc; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; }
+        .specifications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; }
+        .spec-table tr { border-bottom: 1px solid #e2e8f0; }
+        .spec-table tr:last-child { border-bottom: none; }
+        .spec-table tr:nth-child(even) { background: #f7fafc; }
+        .spec-table tr:nth-child(odd) { background: white; }
+        .spec-table td { padding: 0.3rem 0.4rem; text-align: center; }
+        .spec-table td:first-child { font-weight: 600; color: #2c5282; text-align: left; width: 25%; }
+        .spec-table td:last-child { color: #4a5568; }
+        .spec-table th { background: #f7fafc; font-weight: 700; color: #1a365d; padding: 0.35rem 0.25rem; text-align: center; border-bottom: 2px solid #2c5282; font-size: 0.7rem; }
+        .models-section { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .models-section h3 { color: #2c5282; margin-bottom: 1rem; font-size: 1.4rem; }
+        .model-card { background: #f7fafc; border-left: 4px solid #17A589; padding: 1rem; margin-bottom: 0.5rem; border-radius: 0 8px 8px 0; }
+        .model-card h4 { color: #1a365d; margin-bottom: 0.4rem; font-size: 1.15rem; }
+        .model-card p { color: #4a5568; margin-bottom: 0.35rem; }
+        .applications { background: linear-gradient(135deg, #ebf8ff 0%, #f0fff4 100%); border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; }
+        .applications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .applications ul { padding-left: 1.2rem; color: #2d3748; font-size: 0.85rem; }
+        .applications li { margin-bottom: 0.25rem; }
+        .cta-section { text-align: center; background: #1a365d; color: white; padding: 3rem 2rem; border-radius: 12px; margin-top: 3rem; }
+        .cta-section h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .cta-section p { margin-bottom: 2rem; opacity: 0.9; }
+        .btn { display: inline-block; background: #fbbf24; color: #1a365d; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s; margin: 0.5rem; }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-outline { background: transparent; border: 2px solid #fbbf24; color: #fbbf24; }
+        .btn-outline:hover { background: #fbbf24; color: #1a365d; }
+        footer { background: #1a365d; color: white; padding: 3rem 5%; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-section h4 { color: #fbbf24; margin-bottom: 1rem; font-size: 1.2rem; }
+        .footer-section p, .footer-section a { color: #e2e8f0; line-height: 1.8; text-decoration: none; display: block; }
+        .footer-section a:hover { color: #fbbf24; }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #a0aec0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CHINA <span>KOMAL</span></div>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="index-en.html#about">About</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="breadcrumb"><a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=petroleum">Drilling Equipment</a><span>›</span><strong>Swivel</strong></div>
+    <main class="product-main">
+        <div class="image-gallery">
+            <div class="gallery-item active" onclick="changeMainImage(this, 'images/products/shale-shaker-01.jpg')"><img src="images/products/drilling-equipment-01.jpg" alt="Shale Shaker - View 1"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-02.jpg')"><img src="images/products/shale-shaker-02.jpg" alt="Shale Shaker - View 2"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-03.jpg')"><img src="images/products/shale-shaker-03.jpg" alt="Shale Shaker - View 3"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-04.jpg')"><img src="images/products/shale-shaker-04.jpg" alt="Shale Shaker - View 4"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-05.jpg')"><img src="images/products/shale-shaker-05.jpg" alt="Shale Shaker - View 5"></div>
+        </div>
+        <div class="product-grid">
+            <div class="product-image"><img id="mainImage" src="images/products/drilling-equipment-01.jpg" alt="Shale Shaker - Main View"></div>
+            <div class="product-info">
+                <h2>Swivel</h2>
+                <p class="price">Professional Drilling Equipment</p>
+                <p class="description">The Swivel allows rotation of the drill string while maintaining a sealed connection for drilling fluid circulation.</p>
+            </div>
+        </div>
+        <section class="product-features">
+            <h3>Key Features</h3>
+            <ul class="feature-list"><li><strong>Hanging ring</strong> - Standard with alloyed pipe nipple</li>
+<li><strong>Washing pipe</strong> - Boxlike structure for rapid change</li>
+<li><strong>Gooseneck tube</strong> - Through-hole for cable passage</li>
+<li><strong>Tie-in</strong> - API standard 5B screw thread</li>
+<li><strong>Certification</strong> - API Spec 8A regulation</li>
+<li><strong>Optional</strong> - Double-purpose with spinner</li>
+</ul>
+        </section>
+        <section class="specifications">
+            <h3>Technical Specifications</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>SL90</th>
+                        <th>SL135</th>
+                        <th>SL225</th>
+                        <th>SL450</th>
+                        <th>SL585</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Biggest dead load (kN)</td><td>900</td><td>1350</td><td>2250</td><td>4500</td><td>5850</td></tr>
+                    <tr><td>Highest revolution (r/min)</td><td>300</td><td>300</td><td>300</td><td>300</td><td>300</td></tr>
+                    <tr><td>Highest working pressure (MPa/psi)</td><td>25 (3570)</td><td>35 (5000)</td><td>35 (5000)</td><td>35 (5000)</td><td>35 (5000)</td></tr>
+                    <tr><td>Clearance (mm in)</td><td>435 (17⅛″)</td><td>495 (19½″)</td><td>540 (21¼″)</td><td>549 (21⅝″)</td><td>584 (23″)</td></tr>
+                    <tr><td>Central duct (mm in)</td><td>64 (2½″)</td><td>64 (2½″)</td><td>75 (3″)</td><td>75 (3″)</td><td>75 (3″)</td></tr>
+                    <tr><td>Upper screw (API regular)</td><td>4½ REG LH</td><td>4½ REG LH</td><td>6⅝ REG LH</td><td>7⅝ REG LH</td><td>7⅝ REG LH</td></tr>
+                    <tr><td>Under-part screw (API regular)</td><td>6⅝ REG LH</td><td>6⅝ REG LH</td><td>6⅝ REG LH</td><td>6⅝ REG LH</td><td>6⅝ REG LH</td></tr>
+                    <tr><td>Gooseneck tube tie-in screw</td><td>3″-8 teeth/inch</td><td>3″-8 teeth/inch</td><td>4″-8 teeth/inch</td><td>4″-8 teeth/inch</td><td>4″-8 teeth/inch</td></tr>
+                    <tr><td>Shape size (L×W×H mm)</td><td>2505×758×840</td><td>2505×758×840</td><td>2880×1026×1065</td><td>3015×1096×1065</td><td>3115×1224×990</td></tr>
+                    <tr><td>Weight (kg)</td><td>940</td><td>1345</td><td>2402</td><td>3310</td><td>3530</td></tr>
+                </tbody>
+            </table>
+        </table>
+        </section>
+        <section class="applications"><h3>Applications</h3><ul><li>Drilling fluid circulation</li>
+<li>Drill string rotation</li>
+<li>Kelly drive systems</li>
+<li>Rotary drilling</li>
+</ul></section>
+        <section class="cta-section">
+            <h3>Interested in Swivel?</h3>
+            <p>Contact us for detailed specifications, pricing, and customized solutions</p>
+            <a href="index-en.html#contact" class="btn">Request Quote</a>
+            <a href="index-en.html#products" class="btn btn-outline">View More Products</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h4>CHINA KOMAL</h4><p>CHINA KOMAL INTERNATIONAL CO., LTD</p><p>Professional petroleum equipment manufacturer</p></div>
+            <div class="footer-section"><h4>Quick Links</h4><a href="index-en.html">Home</a><a href="index-en.html#products">Products</a><a href="index-en.html#about">About Us</a><a href="index-en.html#contact">Contact</a></div>
+            <div class="footer-section"><h4>Contact Us</h4><p>Email: info@chinakomal.com</p><p>Website: www.chinakomal.com</p><p>Location: Beijing, China</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
+    </footer>
+    <script>
+        function changeMainImage(thumbnail, src) {
+            // Update main image with fade effect
+            const mainImg = document.getElementById('mainImage');
+            mainImg.style.opacity = '0';
+            
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 150);
+            
+            // Update active state on thumbnails
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+    </script>
+</body>
+</html>

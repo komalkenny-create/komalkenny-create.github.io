@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mud Pump - F Series & 3NB Series | CHINA KOMAL</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        .navbar { background: #1a365d; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #fbbf24; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #fbbf24; }
+        .breadcrumb { background: white; padding: 1rem 5%; border-bottom: 1px solid #e2e8f0; }
+        .breadcrumb a { color: #2c5282; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #718096; margin: 0 0.5rem; }
+        .product-main { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; }
+        .product-image img { width: 100%; height: 500px; object-fit: contain; display: block; transition: opacity 0.3s; }
+        .image-gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
+        .gallery-item { border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid transparent; }
+        .gallery-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .gallery-item.active { border-color: #2c5282; }
+        .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; }
+        .product-info h2 { color: #1a365d; font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .product-info .price { font-size: 1.5rem; color: #2c5282; font-weight: bold; margin-bottom: 1.5rem; }
+        .product-info .description { color: #4a5568; line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.9rem; }
+        .product-features { background: white; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .product-features h3 { color: #2c5282; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .feature-list { list-style: none; }
+        .feature-list li { padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list li::before { content: ""; color: #17A589; font-weight: bold; font-size: 1rem; }
+        .specifications { background: #f7fafc; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; overflow-x: auto; }
+        .specifications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; min-width: 900px; }
+        .spec-table thead th { background: #2c5282; color: white; font-weight: 700; padding: 0.4rem 0.3rem; text-align: left; border-bottom: 2px solid #1a365d; }
+        .spec-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+        .spec-table tbody tr:nth-child(even) { background: #edf2f7; }
+        .spec-table tbody tr:nth-child(odd) { background: white; }
+        .spec-table tbody td { padding: 0.3rem 0.25rem; } text-align: center; }
+        .spec-table tbody td:first-child { font-weight: 600; color: #2c5282; text-align: left; width: 20%; }
+        .models-section { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .models-section h3 { color: #2c5282; margin-bottom: 1rem; font-size: 1.4rem; }
+        .model-card { background: #f7fafc; border-left: 4px solid #17A589; padding: 1rem; margin-bottom: 0.5rem; border-radius: 0 8px 8px 0; }
+        .model-card h4 { color: #1a365d; margin-bottom: 0.4rem; font-size: 1.15rem; }
+        .model-card p { color: #4a5568; margin-bottom: 0.35rem; }
+        .parts-section { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .parts-section h3 { color: #2c5282; margin-bottom: 1rem; font-size: 1.4rem; }
+        .parts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+        .parts-card { background: #f7fafc; border-left: 4px solid #17A589; padding: 1rem; border-radius: 0 8px 8px 0; }
+        .parts-card h4 { color: #1a365d; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .parts-card ul { padding-left: 1.2rem; color: #4a5568; font-size: 0.85rem; }
+        .parts-card li { margin-bottom: 0.25rem; }
+        .applications { background: linear-gradient(135deg, #ebf8ff 0%, #f0fff4 100%); border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; }
+        .applications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .applications ul { padding-left: 1.2rem; color: #2d3748; font-size: 0.85rem; }
+        .applications li { margin-bottom: 0.25rem; }
+        .cta-section { text-align: center; background: #1a365d; color: white; padding: 3rem 2rem; border-radius: 12px; margin-top: 3rem; }
+        .cta-section h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .cta-section p { margin-bottom: 2rem; opacity: 0.9; }
+        .btn { display: inline-block; background: #fbbf24; color: #1a365d; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s; margin: 0.5rem; }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-outline { background: transparent; border: 2px solid #fbbf24; color: #fbbf24; }
+        .btn-outline:hover { background: #fbbf24; color: #1a365d; }
+        footer { background: #1a365d; color: white; padding: 3rem 5%; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-section h4 { color: #fbbf24; margin-bottom: 1rem; font-size: 1.2rem; }
+        .footer-section p, .footer-section a { color: #e2e8f0; line-height: 1.8; text-decoration: none; display: block; }
+        .footer-section a:hover { color: #fbbf24; }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #a0aec0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CHINA <span>KOMAL</span></div>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="index-en.html#about">About</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="breadcrumb"><a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=petroleum">Drilling Equipment</a><span>›</span><strong>Mud Pump</strong></div>
+    <main class="product-main">
+        <div class="image-gallery">
+            <div class="gallery-item active" onclick="changeMainImage(this, 'images/products/mud-pump-01.jpg')"><img src="images/products/mud-pump-01.jpg" alt="Mud Pump - View 1"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/mud-pump-02.jpg')"><img src="images/products/mud-pump-02.jpg" alt="Mud Pump - View 2"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/mud-pump-03.jpg')"><img src="images/products/mud-pump-03.jpg" alt="Mud Pump - View 3"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/mud-pump-04.jpg')"><img src="images/products/mud-pump-04.jpg" alt="Mud Pump - View 4"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/mud-pump-05.jpg')"><img src="images/products/mud-pump-05.jpg" alt="Mud Pump - View 5"></div>
+        </div>
+        <div class="product-grid">
+            <div class="product-image"><img id="mainImage" src="images/products/mud-pump-01.jpg" alt="Mud Pump - Main View"></div>
+            <div class="product-info">
+                <h2>Mud Pump - F Series & 3NB Series</h2>
+                <p class="price">Professional Drilling Mud Pump</p>
+                <p class="description">
+                    CHINA KOMAL offers comprehensive mud pump solutions including F Series and 3NB Series triplex 
+                    single-acting piston pumps. With power ratings from 500HP to 2200HP, our mud pumps are designed 
+                    for oil and gas drilling operations worldwide.
+                </p>
+                <p class="description">
+                    We maintain the biggest pump parts warehouse in China, ensuring quick delivery of complete 
+                    mud pumps and all spare parts including power end components, fluid end components, 
+                    drive systems, sealing parts, and accessories.
+                </p>
+            </div>
+        </div>
+
+        <section class="models-section">
+            <h3>F Series Mud Pump - Design Features</h3>
+            <ul class="feature-list">
+                <li><strong>Longer Stroke Design</strong> - Can be used under lower punching number to prolong use life of sensitive parts in fluid end</li>
+                <li><strong>Combination Lubrication</strong> - Forced lubrication and spray lubrication ensures more effective lubrication</li>
+                <li><strong>Durable & Compact</strong> - Advanced structure improves pump's stable operation for middle & deep drilling works</li>
+                <li><strong>Interchangeable Parts</strong> - Injection valve and bleed valve can change mutually, three cylinders interchangeable</li>
+                <li><strong>Durable Fluid End</strong> - Greatly improves performance of triplex mud pump, convenient examination and maintenance</li>
+            </ul>
+        </section>
+
+        <section class="specifications">
+            <h3>F Series Technical Parameters</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>F-500</th>
+                        <th>F-800</th>
+                        <th>F-1000</th>
+                        <th>F-1300</th>
+                        <th>F-1600</th>
+                        <th>F-2200</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Max. Input Rating</td><td>500 KW (373 HP)</td><td>500 KW (373 HP)</td><td>1000 KW (746 HP)</td><td>1300 KW (969 HP)</td><td>1600 KW (1193 HP)</td><td>1600 KW (1193 HP)</td></tr>
+                    <tr><td>Rated Pumping Speed</td><td>165 spm</td><td>150 spm</td><td>140 spm</td><td>120 spm</td><td>120 spm</td><td>100 spm</td></tr>
+                    <tr><td>Max. Liner Internal Diameter</td><td>6¾" (171 mm)</td><td>6¾" (171 mm)</td><td>6¾" (171 mm)</td><td>7" (177.8 mm)</td><td>7" (177.8 mm)</td><td>8" (203 mm)</td></tr>
+                    <tr><td>Stroke</td><td>7½" (191 mm)</td><td>9" (229 mm)</td><td>10" (254 mm)</td><td>12" (304.8 mm)</td><td>12" (304.8 mm)</td><td>15" (381 mm)</td></tr>
+                    <tr><td>Cylinder Hydraulic Testing</td><td colspan="6">7500 psi (527 MPa)</td></tr>
+                    <tr><td>Transmission Ratio</td><td>4.38:1</td><td>4.31:1</td><td>4.32:1</td><td>4.31:1</td><td>4.3:1</td><td>4.27:1</td></tr>
+                    <tr><td>Weight (excluding pulley)</td><td>19,900 kg</td><td>27,000 kg</td><td>33,770 kg</td><td>45,650 kg</td><td>46,820 kg</td><td>79,600 kg</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="models-section">
+            <h3>3NB Series Mud Pump - Design Features</h3>
+            <ul class="feature-list">
+                <li><strong>Power Point</strong> - Plate welding structure eliminates internal stress, involute gear transmission for stable operation</li>
+                <li><strong>Spray Lubrication</strong> - Crank is hollow complete cast with spray lubrication system</li>
+                <li><strong>Valve Hole Design</strong> - Bottom has steps to prevent clack seat from falling</li>
+                <li><strong>Independent Spray Pump</strong> - Piston and liner cooled and lubricated by independent spray pump equipment</li>
+                <li><strong>Quick Installation</strong> - Piston and in-between beam connected by lathe dog for rapid installing and moving</li>
+                <li><strong>ASA&API Compliant</strong> - Injection and outlet flange accords with ASA&API regulations</li>
+                <li><strong>High Commonality</strong> - Sensitive parts has strong interchangeability</li>
+            </ul>
+        </section>
+
+        <section class="specifications">
+            <h3>3NB Series Technical Parameters</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>3NB500G</th>
+                        <th>3NB1000G</th>
+                        <th>3NB1300G</th>
+                        <th>3NB1600G</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Power Rating</td><td>368 KW (500 HP)</td><td>735 KW (1000 HP)</td><td>956 KW (1300 HP)</td><td>1176 KW (1600 HP)</td></tr>
+                    <tr><td>Punching Number</td><td>95 spm</td><td>110 spm</td><td>120 spm</td><td>120 spm</td></tr>
+                    <tr><td>Stroke</td><td>254 mm</td><td>305 mm</td><td>305 mm</td><td>305 mm</td></tr>
+                    <tr><td>Gear Transmission Ratio</td><td>3.82</td><td>3.833</td><td>3.81</td><td>3.81</td></tr>
+                    <tr><td>Rotor Axle Revolutions</td><td>363 r/min</td><td>423 r/min</td><td>457 r/min</td><td>457 r/min</td></tr>
+                    <tr><td>Max. Working Pressure</td><td>30 MPa</td><td>35 MPa</td><td>35 MPa</td><td>35 MPa</td></tr>
+                    <tr><td>Max. Liner Diameter</td><td>160 mm</td><td>170 mm</td><td>180 mm</td><td>190 mm</td></tr>
+                    <tr><td>Injection Pipe Diameter</td><td>254 mm</td><td>305 mm</td><td>305 mm</td><td>305 mm</td></tr>
+                    <tr><td>Outlet Diameter</td><td>100 mm</td><td>100 mm</td><td>100 mm</td><td>100 mm</td></tr>
+                    <tr><td>Dimension (mm)</td><td>4220×2640×2430</td><td>5170×2809×2530</td><td>5010×1942×1918</td><td>4450×2850×2077</td></tr>
+                    <tr><td>Weight</td><td>15,940 kg</td><td>21,450 kg</td><td>23,000 kg</td><td>29,700 kg</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="specifications">
+            <h3>High Chrome Bi-Metal Liner</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Specification</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Construction</td><td>Double metal fit together - outer sleeve forged steel with quality carbon steel, inner sleeve high carbon & high chromium cast</td></tr>
+                    <tr><td>Manufacturing Process</td><td>Centrifugal casting technology</td></tr>
+                    <tr><td>Hardness</td><td>62 HRC after heat treatment</td></tr>
+                    <tr><td>Service Life</td><td>Over 800 hours</td></tr>
+                    <tr><td>Surface Finish</td><td>Highly polished inner sleeve</td></tr>
+                    <tr><td>Properties</td><td>Abrasion & corrosive resistance, suitable for various bad working environments</td></tr>
+                    <tr><td>Compatible Models</td><td>F800/1000/1300/1600, F1600HL, PZ6/7/8/9/10/11, 12P160, T1000/1300/1600, 3NB500/600/800/950/1180, 8T310/650</td></tr>
+                    <tr><td>Available Sizes</td><td>Ø100mm to Ø170mm, 5" to 7" (13 specifications)</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="parts-section">
+            <h3> Mud Pump Spare Parts - Complete Inventory</h3>
+            <div class="parts-grid">
+                <div class="parts-card">
+                    <h4>Power End Parts</h4>
+                    <ul>
+                        <li>Crank Shaft Assembly</li>
+                        <li>Connection Rod</li>
+                        <li>Main Shaft Bearing</li>
+                        <li>Crosshead Bearing</li>
+                        <li>Lower Guider</li>
+                        <li>Small Gear Assembly</li>
+                        <li>Baffle</li>
+                        <li>Plug Board Assembly</li>
+                        <li>Pump Shell</li>
+                        <li>Pinion Gear</li>
+                        <li>Bull Gear</li>
+                    </ul>
+                </div>
+                <div class="parts-card">
+                    <h4>Fluid End Parts</h4>
+                    <ul>
+                        <li>Fluid Cylinder Assembly</li>
+                        <li>Piston Rod</li>
+                        <li>Piston Rod Clamp</li>
+                        <li>Cylinder Liner</li>
+                        <li>Liner Gland</li>
+                        <li>Liner Flange</li>
+                        <li>Cylinder Cover</li>
+                        <li>Valve and Spring</li>
+                        <li>Valve Deck</li>
+                        <li>Wear-Resistant Plate</li>
+                        <li>High Chrome Bi-Metal Liner</li>
+                    </ul>
+                </div>
+                <div class="parts-card">
+                    <h4>Drive Components</h4>
+                    <ul>
+                        <li>Belt Pulley</li>
+                        <li>Gear Ring</li>
+                        <li>Eccentric Gear Bearing</li>
+                        <li>Friction Plate</li>
+                        <li>Air Tube Clutch</li>
+                        <li>Ventilated Air Tube</li>
+                        <li>Clutch Steel Ring</li>
+                        <li>Break Bands</li>
+                    </ul>
+                </div>
+                <div class="parts-card">
+                    <h4>Sealing Parts</h4>
+                    <ul>
+                        <li>Piston</li>
+                        <li>Piston Rubber</li>
+                        <li>Piston Core</li>
+                        <li>Piston Rod Packing</li>
+                        <li>Liner Seal</li>
+                        <li>Valve Cover Gasket</li>
+                        <li>O-Rings</li>
+                    </ul>
+                </div>
+                <div class="parts-card">
+                    <h4>Accessories</h4>
+                    <ul>
+                        <li>Air Bag Assembly</li>
+                        <li>Pressure Gauge</li>
+                        <li>Extension Rod Bearings</li>
+                        <li>Cylinder Head Plug</li>
+                        <li>Shear Type Safety Valve</li>
+                        <li>Crosshead Baffle Bolts</li>
+                        <li>Safety Valve</li>
+                        <li>Spray Pump Spring</li>
+                        <li>Liner Suction Air Bag Capsule</li>
+                        <li>Suction End Cover</li>
+                        <li>Valve Sets</li>
+                        <li>Lower Guide Plate</li>
+                        <li>Five Ways Outlet Valve Assembly</li>
+                    </ul>
+                </div>
+                <div class="parts-card">
+                    <h4>BOP & Parts</h4>
+                    <ul>
+                        <li>Annular BOP</li>
+                        <li>Single Ram BOP</li>
+                        <li>Double Ram BOP</li>
+                        <li>Four Ways</li>
+                        <li>BOP Parts</li>
+                        <li>Casing Head</li>
+                        <li>Flanges</li>
+                        <li>Belt Wheel</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="applications">
+            <h3>Applications</h3>
+            <ul>
+                <li>Oil and gas drilling rigs - Onshore and offshore operations</li>
+                <li>Workover rigs - Well maintenance and repair operations</li>
+                <li>Drilling fluid circulation - Maintaining wellbore pressure and cooling</li>
+                <li>Cuttings removal - Transporting drill cuttings to surface</li>
+                <li>Well control operations - Maintaining proper mud weight and pressure</li>
+                <li>Cementing operations - Pumping cement slurry during well completion</li>
+                <li>Middle & deep drilling works - F Series for demanding applications</li>
+            </ul>
+        </section>
+
+        <section class="cta-section">
+            <h3>Interested in Mud Pump?</h3>
+            <p>Contact us for F Series, 3NB Series mud pumps and complete spare parts. We maintain the biggest pump parts warehouse in China!</p>
+            <a href="index-en.html#contact" class="btn">Request Quote</a>
+            <a href="series.html?s=petroleum" class="btn btn-outline">View More Products</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h4>CHINA KOMAL</h4><p>CHINA KOMAL INTERNATIONAL CO., LTD</p><p>Professional petroleum equipment manufacturer</p></div>
+            <div class="footer-section"><h4>Quick Links</h4><a href="index-en.html">Home</a><a href="index-en.html#products">Products</a><a href="index-en.html#about">About Us</a><a href="index-en.html#contact">Contact</a></div>
+            <div class="footer-section"><h4>Contact Us</h4><p>Email: info@chinakomal.com</p><p>Website: www.chinakomal.com</p><p>Location: Beijing, China</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
+    </footer>
+    <script>
+        function changeMainImage(thumbnail, src) {
+            const mainImg = document.getElementById('mainImage');
+            mainImg.style.opacity = '0';
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 150);
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+    </script>
+</body>
+</html>

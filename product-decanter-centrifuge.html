@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decanter Centrifuge - Solids Control System | CHINA KOMAL</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        .navbar { background: #1a365d; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #fbbf24; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #fbbf24; }
+        .breadcrumb { background: white; padding: 1rem 5%; border-bottom: 1px solid #e2e8f0; }
+        .breadcrumb a { color: #2c5282; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #718096; margin: 0 0.5rem; }
+        .product-main { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; }
+        .product-image img { width: 100%; height: 500px; object-fit: contain; display: block; }
+        .product-info h2 { color: #1a365d; font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .product-info .price { font-size: 1.5rem; color: #2c5282; font-weight: bold; margin-bottom: 1.5rem; }
+        .product-info .description { color: #4a5568; line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.9rem; }
+        .product-features { background: white; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .product-features h3 { color: #2c5282; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .feature-list { list-style: none; }
+        .feature-list li { padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list li::before { content: ""; color: #17A589; font-weight: bold; font-size: 1rem; }
+        .specifications { background: #f7fafc; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; overflow-x: auto; }
+        .specifications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; min-width: 900px; }
+        .spec-table thead th { background: #2c5282; color: white; font-weight: 700; padding: 0.4rem 0.3rem; text-align: left; border-bottom: 2px solid #1a365d; }
+        .spec-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+        .spec-table tbody tr:nth-child(even) { background: #edf2f7; }
+        .spec-table tbody tr:nth-child(odd) { background: white; }
+        .spec-table tbody td { padding: 0.3rem 0.25rem; } text-align: center; }
+        .spec-table tbody td:first-child { font-weight: 600; color: #2c5282; text-align: left; width: 20%; }
+        .models-section { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .models-section h3 { color: #2c5282; margin-bottom: 1rem; font-size: 1.4rem; }
+        .model-card { background: #f7fafc; border-left: 4px solid #17A589; padding: 1rem; margin-bottom: 0.5rem; border-radius: 0 8px 8px 0; }
+        .model-card h4 { color: #1a365d; margin-bottom: 0.4rem; font-size: 1.15rem; }
+        .model-card p { color: #4a5568; margin-bottom: 0.35rem; }
+        .applications { background: linear-gradient(135deg, #ebf8ff 0%, #f0fff4 100%); border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; }
+        .applications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .applications ul { padding-left: 1.2rem; color: #2d3748; font-size: 0.85rem; }
+        .applications li { margin-bottom: 0.25rem; }
+        .cta-section { text-align: center; background: #1a365d; color: white; padding: 3rem 2rem; border-radius: 12px; margin-top: 3rem; }
+        .cta-section h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .cta-section p { margin-bottom: 2rem; opacity: 0.9; }
+        .btn { display: inline-block; background: #fbbf24; color: #1a365d; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s; margin: 0.5rem; }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-outline { background: transparent; border: 2px solid #fbbf24; color: #fbbf24; }
+        .btn-outline:hover { background: #fbbf24; color: #1a365d; }
+        footer { background: #1a365d; color: white; padding: 3rem 5%; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-section h4 { color: #fbbf24; margin-bottom: 1rem; font-size: 1.2rem; }
+        .footer-section p, .footer-section a { color: #e2e8f0; line-height: 1.8; text-decoration: none; display: block; }
+        .footer-section a:hover { color: #fbbf24; }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #a0aec0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CHINA <span>KOMAL</span></div>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="index-en.html#about">About</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="breadcrumb"><a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=solids">Solids Control System</a><span>›</span><strong>Decanter Centrifuge</strong></div>
+    <main class="product-main">
+        <div class="product-grid">
+            <div class="product-image"><img src="images/products/decanter-centrifuge-01.jpg" alt="Decanter Centrifuge"></div>
+            <div class="product-info">
+                <h2>Decanter Centrifuge</h2>
+                <p class="price">High-Speed Solids Control Equipment</p>
+                <p class="description">
+                    The Decanter Centrifuge is the final and finest stage of solids control, separating ultra-fine particles (2-15μm) 
+                    from drilling fluid using centrifugal force up to 3066G. It provides precise control of drilling fluid properties 
+                    and is essential for maintaining optimal mud weight and viscosity in demanding drilling operations.
+                </p>
+                <p class="description">
+                    CHINA KOMAL offers both Premium and Economic series centrifuges with fixed speed, VFD, and hydraulic drive options 
+                    to meet various operational requirements and budget considerations.
+                </p>
+            </div>
+        </div>
+
+        <section class="models-section">
+            <h3>Available Models</h3>
+            <div class="model-card">
+                <h4>Premium Series</h4>
+                <p><strong>Models:</strong> KPDC-1400F, KPDC-1400V, KPDC-1800V, KPDC-2200V</p>
+                <p><strong>Bowl Diameter:</strong> 14" to 22" (360mm to 550mm)</p>
+                <p><strong>Max G Force:</strong> Up to 3066G</p>
+            </div>
+        </section>
+
+        <section class="product-features">
+            <h3>Premium Centrifuge Features</h3>
+            <ul class="feature-list">
+                <li><strong>Premium Design</strong> - Highest configuration and best material for long and reliable service</li>
+                <li><strong>Duplex Stainless Steel Bowl</strong> - Cylindrical and Conical section made from 2205/2304 by centrifugal casting</li>
+                <li><strong>SS304/SS316L Components</strong> - Other parts of bowl assembly in stainless steel</li>
+                <li><strong>Tungsten Carbide Protection</strong> - Screw protection and solids discharge port for extended life</li>
+                <li><strong>Adjustable Weir Height</strong> - Easily adjustable liquid discharge weir for flexible application</li>
+                <li><strong>Premium Bearings</strong> - Genuine SKF/FAG/NKS bearings for reliable operation</li>
+                <li><strong>Overload Protection</strong> - Limit switch protection for fixed speed and VFD centrifuges</li>
+                <li><strong>Planetary Gear Gearbox</strong> - For fixed speed and VFD centrifuges; Hydraulic motor option available</li>
+            </ul>
+        </section>
+
+        <section class="specifications">
+            <h3>Technical Specifications</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>KPDC-1400F</th>
+                        <th>KPDC-1400V</th>
+                        <th>KPDC-1800V</th>
+                        <th>KPDC-2200V</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Bowl Diameter</td><td>14" (360mm)</td><td>14" (360mm)</td><td>18" (460mm)</td><td>22" (550mm)</td></tr>
+                    <tr><td>Bowl Length</td><td>50" (1262mm)</td><td>50" (1262mm)</td><td>47" (1200mm)</td><td>55" (1400mm)</td></tr>
+                    <tr><td>Max. Capacity</td><td>132 gpm (30 m³/h)</td><td>132 gpm (30 m³/h)</td><td>264 gpm (60 m³/h)</td><td>352 gpm (80 m³/h)</td></tr>
+                    <tr><td>Effective Capacity</td><td>88 gpm (20 m³/h)</td><td>88 gpm (20 m³/h)</td><td>176 gpm (40 m³/h)</td><td>264 gpm (60 m³/h)</td></tr>
+                    <tr><td>Max. Bowl Speed</td><td>3900 rpm</td><td>3900 rpm</td><td>3400 rpm</td><td>3000 rpm</td></tr>
+                    <tr><td>Typical Bowl Speed</td><td>3400 rpm</td><td>0~3400 rpm</td><td>3000 rpm</td><td>2000 rpm</td></tr>
+                    <tr><td>Max. G Force</td><td>3066G</td><td>3066G</td><td>2978G</td><td>2772G</td></tr>
+                    <tr><td>Typical G Force</td><td>2330G</td><td>≤2330G</td><td>≤2318G</td><td>≤1232G</td></tr>
+                    <tr><td>Separation Point</td><td>2~15μm</td><td>2~15μm</td><td>3~8μm</td><td>2~6μm</td></tr>
+                    <tr><td>Differential Speed</td><td>27~52 rpm</td><td>≤60 rpm (Adjustable)</td><td>≤50 rpm</td><td>≤50 rpm</td></tr>
+                    <tr><td>Gearbox Torque</td><td>3500 N.M</td><td>3500 N.M</td><td>7000 N.M</td><td>9000 N.M</td></tr>
+                    <tr><td>Gear Box Ratio</td><td>57:1</td><td>57:1</td><td>88:1</td><td>91:1</td></tr>
+                    <tr><td>Bowl Drive</td><td>30kw (40hp)</td><td>30kw (40hp) & VFD</td><td>45kw (50hp) & VFD</td><td>55kw (75hp) & VFD</td></tr>
+                    <tr><td>Conveyor Drive</td><td>7.5kw (10hp)</td><td>7.5kw (10hp) & VFD</td><td>15kw (15hp) & VFD</td><td>22kw (30hp) & VFD</td></tr>
+                    <tr><td>Pump Drive</td><td>5.5kw (7.5hp)</td><td>5.5kw (7.5hp) & VFD</td><td>7.5/11kw (10/15hp) & VFD</td><td>11/15kw (15/20hp) & VFD</td></tr>
+                    <tr><td>Voltage/Frequency</td><td colspan="4">Ex Standard / 460V/60HZ, 380V/50HZ or customized</td></tr>
+                    <tr><td>Certification</td><td colspan="4">ExdIIBt4 / IEC EX / ATEX for option</td></tr>
+                    <tr><td>Weight</td><td>3300 kg</td><td>3200 kg</td><td>3500 kg</td><td>4500 kg</td></tr>
+                    <tr><td>Dimension (mm)</td><td>3000×1500×1650</td><td>3000×1500×1650</td><td>2700×1700×1124</td><td>3600×1450×1635</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="applications">
+            <h3>Applications</h3>
+            <ul>
+                <li>Oil and gas drilling - Ultra-fine solids removal and barite recovery</li>
+                <li>HDD/Trenchless drilling - Fine bentonite recovery</li>
+                <li>CBM drilling - Drilling fluid purification</li>
+                <li>Water well drilling - Fine particle separation</li>
+                <li>Non-ferrous metal processing - Mineral separation</li>
+                <li>Chemical industry - Liquid-solid separation</li>
+            </ul>
+        </section>
+
+        <section class="cta-section">
+            <h3>Interested in Decanter Centrifuge?</h3>
+            <p>Contact us for detailed specifications, pricing, and customized solutions</p>
+            <a href="index-en.html#contact" class="btn">Request Quote</a>
+            <a href="series.html?s=solids" class="btn btn-outline">View More Products</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h4>CHINA KOMAL</h4><p>CHINA KOMAL INTERNATIONAL CO., LTD</p><p>Professional petroleum equipment manufacturer</p></div>
+            <div class="footer-section"><h4>Quick Links</h4><a href="index-en.html">Home</a><a href="index-en.html#products">Products</a><a href="index-en.html#about">About Us</a><a href="index-en.html#contact">Contact</a></div>
+            <div class="footer-section"><h4>Contact Us</h4><p>Email: info@chinakomal.com</p><p>Website: www.chinakomal.com</p><p>Location: Beijing, China</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
+    </footer>
+</body>
+</html>

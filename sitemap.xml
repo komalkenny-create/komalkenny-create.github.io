@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Homepage -->
+    <url>
+        <loc>https://www.chinakomal.com/index-en.html</loc>
+        <lastmod>2026-04-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Product Series Pages -->
+    <url>
+        <loc>https://www.chinakomal.com/series.html?s=petroleum</loc>
+        <lastmod>2026-04-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.chinakomal.com/series.html?s=solids</loc>
+        <lastmod>2026-04-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.chinakomal.com/series.html?s=mud-pump</loc>
+        <lastmod>2026-04-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.chinakomal.com/series.html?s=shaker</loc>
+        <lastmod>2026-04-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://www.chinakomal.com/series.html?s=pump</loc>
+        <lastmod>2026-04-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- High Pressure Pump Products -->
+    <url><loc>https://www.chinakomal.com/product-3d2-sz-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-3d2a-sz-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-3d2d-sz-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-3d3-sz-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-3d3-sz-k20000-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-3d3q-sz-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-3dk-sz-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-200hwst3-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-250hwst3-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-oem-600-bhp-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-3nb-1600-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    
+    <!-- Drilling Equipment -->
+    <url><loc>https://www.chinakomal.com/product-truck-mounted-rig.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-workover-rig.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-crown-block.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-traveling-block.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-hook.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-swivel.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-rotary-table.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-mud-pump.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    
+    <!-- Solids Control System -->
+    <url><loc>https://www.chinakomal.com/product-shale-shaker.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-mud-cleaner.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-desander.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-desilter.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-decanter-centrifuge.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-screw-conveyor.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    
+    <!-- Mud Pump Parts -->
+    <url><loc>https://www.chinakomal.com/product-mud-pump-parts.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-gardner-denver-pz11.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    <url><loc>https://www.chinakomal.com/product-gardner-denver-pz10.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    <url><loc>https://www.chinakomal.com/product-gardner-denver-pz9.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    <url><loc>https://www.chinakomal.com/product-gardner-denver-pz8.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    <url><loc>https://www.chinakomal.com/product-gardner-denver-pz7.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    
+    <!-- Shaker Screen -->
+    <url><loc>https://www.chinakomal.com/product-shaker-screen.html</loc><lastmod>2026-04-01</lastmod><priority>0.8</priority></url>
+    <url><loc>https://www.chinakomal.com/product-stainless-steel-mesh.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    <url><loc>https://www.chinakomal.com/product-pyramid-screen.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    <url><loc>https://www.chinakomal.com/product-composite-screen.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    <url><loc>https://www.chinakomal.com/product-steel-frame-screen.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    <url><loc>https://www.chinakomal.com/product-slotted-liner.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    <url><loc>https://www.chinakomal.com/product-wire-wrapped-screen.html</loc><lastmod>2026-04-01</lastmod><priority>0.7</priority></url>
+    
+    <!-- Other Pages -->
+    <url><loc>https://www.chinakomal.com/blog-post.html</loc><lastmod>2026-04-01</lastmod><priority>0.6</priority></url>
+    <url><loc>https://www.chinakomal.com/cart.html</loc><lastmod>2026-04-01</lastmod><priority>0.5</priority></url>
+    <url><loc>https://www.chinakomal.com/login.html</loc><lastmod>2026-04-01</lastmod><priority>0.3</priority></url>
+    <url><loc>https://www.chinakomal.com/register.html</loc><lastmod>2026-04-01</lastmod><priority>0.3</priority></url>
+    <url><loc>https://www.chinakomal.com/user-center.html</loc><lastmod>2026-04-01</lastmod><priority>0.3</priority></url>
+</urlset>

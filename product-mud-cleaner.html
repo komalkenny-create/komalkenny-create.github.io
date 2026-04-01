@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mud Cleaner - Solids Control System | CHINA KOMAL</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        .navbar { background: #1a365d; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #fbbf24; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #fbbf24; }
+        .breadcrumb { background: white; padding: 1rem 5%; border-bottom: 1px solid #e2e8f0; }
+        .breadcrumb a { color: #2c5282; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #718096; margin: 0 0.5rem; }
+        .product-main { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; }
+        .product-image img { width: 100%; height: 500px; object-fit: contain; display: block; }
+        .product-info h2 { color: #1a365d; font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .product-info .price { font-size: 1.5rem; color: #2c5282; font-weight: bold; margin-bottom: 1.5rem; }
+        .product-info .description { color: #4a5568; line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.9rem; }
+        .product-features { background: white; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .product-features h3 { color: #2c5282; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .feature-list { list-style: none; }
+        .feature-list li { padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list li::before { content: ""; color: #17A589; font-weight: bold; font-size: 1rem; }
+        .specifications { background: #f7fafc; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; overflow-x: auto; }
+        .specifications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; min-width: 800px; }
+        .spec-table thead th { background: #2c5282; color: white; font-weight: 700; padding: 0.4rem 0.3rem; text-align: left; border-bottom: 2px solid #1a365d; }
+        .spec-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+        .spec-table tbody tr:nth-child(even) { background: #edf2f7; }
+        .spec-table tbody tr:nth-child(odd) { background: white; }
+        .spec-table tbody td { padding: 0.3rem 0.25rem; } text-align: center; }
+        .spec-table tbody td:first-child { font-weight: 600; color: #2c5282; text-align: left; width: 20%; }
+        .models-section { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .models-section h3 { color: #2c5282; margin-bottom: 1rem; font-size: 1.4rem; }
+        .model-card { background: #f7fafc; border-left: 4px solid #17A589; padding: 1rem; margin-bottom: 0.5rem; border-radius: 0 8px 8px 0; }
+        .model-card h4 { color: #1a365d; margin-bottom: 0.4rem; font-size: 1.15rem; }
+        .model-card p { color: #4a5568; margin-bottom: 0.35rem; }
+        .applications { background: linear-gradient(135deg, #ebf8ff 0%, #f0fff4 100%); border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; }
+        .applications h3 { color: #1a365d; margin-bottom: 0.75rem; font-size: 1.2rem; }
+        .applications ul { padding-left: 1.2rem; color: #2d3748; font-size: 0.85rem; }
+        .applications li { margin-bottom: 0.25rem; }
+        .cta-section { text-align: center; background: #1a365d; color: white; padding: 3rem 2rem; border-radius: 12px; margin-top: 3rem; }
+        .cta-section h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .cta-section p { margin-bottom: 2rem; opacity: 0.9; }
+        .btn { display: inline-block; background: #fbbf24; color: #1a365d; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s; margin: 0.5rem; }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-outline { background: transparent; border: 2px solid #fbbf24; color: #fbbf24; }
+        .btn-outline:hover { background: #fbbf24; color: #1a365d; }
+        footer { background: #1a365d; color: white; padding: 3rem 5%; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-section h4 { color: #fbbf24; margin-bottom: 1rem; font-size: 1.2rem; }
+        .footer-section p, .footer-section a { color: #e2e8f0; line-height: 1.8; text-decoration: none; display: block; }
+        .footer-section a:hover { color: #fbbf24; }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #a0aec0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CHINA <span>KOMAL</span></div>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="index-en.html#about">About</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="breadcrumb"><a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=solids">Solids Control System</a><span>›</span><strong>Mud Cleaner</strong></div>
+    <main class="product-main">
+        <div class="product-grid">
+            <div class="product-image"><img src="images/products/mud-cleaner-01.jpg" alt="Mud Cleaner"></div>
+            <div class="product-info">
+                <h2>Mud Cleaner</h2>
+                <p class="price">3-in-1 Solids Control Unit</p>
+                <p class="description">
+                    The Mud Cleaner is a compact 3-in-1 unit combining Desander, Desilter, and Shale Shaker 
+                    for efficient solids control. It provides multi-stage separation to remove drilled cuttings 
+                    from drilling fluid, maintaining optimal mud properties while minimizing fluid loss.
+                </p>
+                <p class="description">
+                    CHINA KOMAL mud cleaners feature polyurethane hydro-cyclones for extended life, 
+                    adjustable shaker deck angles, and premium electrical components for reliable operation 
+                    in demanding drilling conditions.
+                </p>
+            </div>
+        </div>
+
+        <section class="models-section">
+            <h3>Available Models</h3>
+            <div class="model-card">
+                <h4>KQJ Series (Standard Mud Cleaner)</h4>
+                <p><strong>Models:</strong> KQJ-1B, KQJ-2S, KQJ-3D</p>
+                <p><strong>Capacity:</strong> 240 m³/h (1056 gpm)</p>
+            </div>
+            <div class="model-card">
+                <h4>KPMC Series (Compact Mud Cleaner)</h4>
+                <p><strong>Models:</strong> KPMC-1S8N, KPMC-2S12N, KPMC-3S16N</p>
+                <p><strong>Capacity:</strong> 120-360 m³/h (500-1500 gpm)</p>
+            </div>
+        </section>
+
+        <section class="product-features">
+            <h3>Technical Features</h3>
+            <ul class="feature-list">
+                <li><strong>3-in-1 Compact Design</strong> - Desander & Desilter & Shale Shaker integrated unit for compact footprint</li>
+                <li><strong>Polyurethane Hydro-Cyclones</strong> - Inside for long life, metal outside for easy assembly and disassembly</li>
+                <li><strong>Adjustable Deck Angle</strong> - Shaker deck angle adjustable while working, mechanical adjustment with reliable performance</li>
+                <li><strong>Stainless Steel Bottom Deck</strong> - For long service life</li>
+                <li><strong>Heat Treatment</strong> - On complete shaker deck for High G force operation</li>
+                <li><strong>Pretension Shaker Screen</strong> - For fast replacement</li>
+                <li><strong>Premium Vibration Motors</strong> - IEC Ex, ATEX and UL Certified available</li>
+                <li><strong>Premium Electrical Components</strong> - SIEMENS, Schneider or ABB available</li>
+            </ul>
+        </section>
+
+        <section class="specifications">
+            <h3>KQJ Series Specifications</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>KQJ-1B</th>
+                        <th>KQJ-2S</th>
+                        <th>KQJ-3D</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Max. Capacity</td><td>240 m³/h (1056 gpm)</td><td>240 m³/h (800 gpm)</td><td>240 m³/h</td></tr>
+                    <tr><td>Desander Size</td><td>300mm (12 inch) Big Belly</td><td>300mm (12 inch)</td><td>250mm (10 inch)</td></tr>
+                    <tr><td>Desander Qty</td><td>2</td><td>2</td><td>2</td></tr>
+                    <tr><td>Desander Separation Point</td><td>47~75μm</td><td>47~75μm</td><td>47-75μm</td></tr>
+                    <tr><td>Desilter Size</td><td>100mm (4 inch) Big Belly</td><td>100mm (4 inch)</td><td>100mm (4 inch)</td></tr>
+                    <tr><td>Desilter Qty</td><td>16</td><td>16</td><td>12/16</td></tr>
+                    <tr><td>Desilter Separation Point</td><td>15~47μm</td><td>15~47μm</td><td>15-47μm</td></tr>
+                    <tr><td>Shale Shaker Model</td><td>K/Z-635M</td><td>K/Z-585 Pro</td><td>K/Z-697</td></tr>
+                    <tr><td>Vibrating Mode</td><td>Linear motion</td><td>Dual motion</td><td>Linear motion</td></tr>
+                    <tr><td>Vibrating Motor</td><td>2×1.86kw (2×2.5hp)</td><td>2×1.86kw (2×2.5hp)</td><td>2×1.865kw (2×2.5hp)</td></tr>
+                    <tr><td>Vibrating Strength</td><td>≤6.5mm</td><td>≤6mm</td><td>≤6.5mm</td></tr>
+                    <tr><td>Screen</td><td>1250×635mm (3 pcs)</td><td>1165×585mm (4 pcs)</td><td>1053×697mm (3 pcs)</td></tr>
+                    <tr><td>Matching Sand Pump Power</td><td>55-75 kw</td><td>55-75 kw</td><td>55-75 kw</td></tr>
+                    <tr><td>Working Pressure</td><td>0.25-0.4 Mpa</td><td>0.25-0.4 Mpa</td><td>0.25-0.4 MPa</td></tr>
+                    <tr><td>Weight</td><td>2400 kg</td><td>2650 kg</td><td>3304 kg</td></tr>
+                    <tr><td>Dimension (mm)</td><td>2448×1950×2580</td><td>2955×1860×2290</td><td>3210×2032×2769</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="specifications">
+            <h3>KPMC Series Specifications</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>KPMC-1S8N</th>
+                        <th>KPMC-2S12N</th>
+                        <th>KPMC-3S16N</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Max. Capacity</td><td>120 m³/h (500 gpm)</td><td>240 m³/h (1000 gpm)</td><td>360 m³/h (1500 gpm)</td></tr>
+                    <tr><td>Recommend Feed Pump</td><td>37kw (50hp)</td><td>55kw (73hp)</td><td>75kw (100hp)</td></tr>
+                    <tr><td>Desander Cone Qty</td><td>1 pc</td><td>2 pcs</td><td>3 pcs</td></tr>
+                    <tr><td>Desander Cone Size</td><td colspan="3">10 inch</td></tr>
+                    <tr><td>Desander Separation Point</td><td colspan="3">47~75μm</td></tr>
+                    <tr><td>Desilter Cone Qty</td><td>8 pcs</td><td>12 pcs</td><td>16 pcs</td></tr>
+                    <tr><td>Desilter Cone Size</td><td colspan="3">4 inch</td></tr>
+                    <tr><td>Desilter Separation Point</td><td colspan="3">15~47μm</td></tr>
+                    <tr><td>Working Pressure</td><td colspan="3">0.25~0.4 Mpa</td></tr>
+                    <tr><td>Inlet/Outlet Size</td><td colspan="3">6 inch (DN150) / 8 inch (DN200)</td></tr>
+                    <tr><td>Underflow Shaker</td><td colspan="3">KPLM-697 matched (other types optional)</td></tr>
+                    <tr><td>Vibrating Motor</td><td colspan="3">2×1.72kw (2×2.3hp)</td></tr>
+                    <tr><td>Adjusting G Force</td><td colspan="3">≤7.0G</td></tr>
+                    <tr><td>Vibration Amplitude</td><td colspan="3">≤6.0mm</td></tr>
+                    <tr><td>Deck Adjustment</td><td colspan="3">-1°  +5°</td></tr>
+                    <tr><td>Screen Qty</td><td colspan="3">3 pcs</td></tr>
+                    <tr><td>Screen Size</td><td colspan="3">1053×697mm (42×27 in)</td></tr>
+                    <tr><td>Screen Area</td><td colspan="3">2.2 m²</td></tr>
+                    <tr><td>Weight</td><td>3304 kg</td><td>3350 kg</td><td>3490 kg</td></tr>
+                    <tr><td>Dimension (mm)</td><td>3210×2032×2769</td><td>3210×2032×2769</td><td>3210×2032×2769</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="applications">
+            <h3>Applications</h3>
+            <ul>
+                <li>Oil and gas drilling rigs - Multi-stage solids removal</li>
+                <li>HDD/Trenchless drilling - Compact mud cleaning systems</li>
+                <li>CBM drilling - Efficient cuttings removal</li>
+                <li>Water well drilling - Medium to large diameter boreholes</li>
+                <li>Geothermal drilling - High temperature mud processing</li>
+            </ul>
+        </section>
+
+        <section class="cta-section">
+            <h3>Interested in Mud Cleaner?</h3>
+            <p>Contact us for detailed specifications, pricing, and customized solutions</p>
+            <a href="index-en.html#contact" class="btn">Request Quote</a>
+            <a href="series.html?s=solids" class="btn btn-outline">View More Products</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h4>CHINA KOMAL</h4><p>CHINA KOMAL INTERNATIONAL CO., LTD</p><p>Professional petroleum equipment manufacturer</p></div>
+            <div class="footer-section"><h4>Quick Links</h4><a href="index-en.html">Home</a><a href="index-en.html#products">Products</a><a href="index-en.html#about">About Us</a><a href="index-en.html#contact">Contact</a></div>
+            <div class="footer-section"><h4>Contact Us</h4><p>Email: info@chinakomal.com</p><p>Website: www.chinakomal.com</p><p>Location: Beijing, China</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
+    </footer>
+</body>
+</html>

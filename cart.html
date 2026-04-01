@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - CHINA KOMAL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f7fafc;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #fbbf24;
+            color: #1a365d;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(44, 82, 130, 0.7)), url('images/offshore-worker.jpg') center/cover no-repeat;
+            color: white;
+            padding: 120px 5% 60px;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .breadcrumb {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        /* Cart Section */
+        .cart-section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cart-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Cart Items */
+        .cart-items {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .cart-header {
+            display: grid;
+            grid-template-columns: 3fr 2fr 1fr 1fr;
+            padding: 1rem 0;
+            border-bottom: 2px solid #e2e8f0;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 3fr 2fr 1fr 1fr;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .item-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            border-radius: 10px;
+        }
+
+        .item-details h3 {
+            color: #1a365d;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .item-details p {
+            color: #718096;
+            font-size: 0.85rem;
+        }
+
+        .item-price {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            background: #f7fafc;
+            border: none;
+            padding: 5px 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .quantity-input input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            font-size: 0.95rem;
+            padding: 5px;
+        }
+
+        .item-total {
+            text-align: right;
+            font-weight: bold;
+            color: #E85D3F;
+            font-size: 1.1rem;
+        }
+
+        .item-remove {
+            text-align: center;
+        }
+
+        .btn-remove {
+            background: none;
+            border: none;
+            color: #e53e3e;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .btn-remove:hover {
+            transform: scale(1.2);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .empty-cart-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-cart h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .empty-cart p {
+            color: #718096;
+            margin-bottom: 2rem;
+        }
+
+        .btn-continue {
+            background: #fbbf24;
+            color: #1a365d;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-continue:hover {
+            background: #f6a81c;
+            transform: translateY(-2px);
+        }
+
+        /* Cart Summary */
+        .cart-summary {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .cart-summary h2 {
+            color: #1a365d;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            color: #4a5568;
+        }
+
+        .summary-row.total {
+            border-top: 2px solid #e2e8f0;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2d3748;
+        }
+
+        .summary-row.total .amount {
+            color: #E85D3F;
+            font-size: 1.4rem;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background: #E85D3F;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .btn-checkout:hover {
+            background: #d44f2b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 93, 63, 0.4);
+        }
+
+        .btn-continue-shopping {
+            width: 100%;
+            background: #f7fafc;
+            color: #2d3748;
+            border: 2px solid #e2e8f0;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-continue-shopping:hover {
+            background: #e2e8f0;
+        }
+
+        .trust-badges {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .trust-badges p {
+            text-align: center;
+            color: #718096;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: #f7fafc;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a365d;
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e0;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2c5282;
+            color: #cbd5e0;
+        }
+
+        @media (max-width: 768px) {
+            .cart-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-header {
+                display: none;
+            }
+
+            .cart-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .item-info {
+                flex-direction: column;
+            }
+
+            .item-quantity {
+                justify-content: center;
+            }
+
+            .item-total {
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">CHINA KOMAL</div>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="index-en.html#about">About Us</a></li>
+            <li><a href="index-en.html#news">News</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+        <div class="cart-icon" onclick="window.location.href='cart.html'">
+             Cart
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1> Shopping Cart</h1>
+        <div class="breadcrumb">
+            <a href="index-en.html">Home</a> / 
+            <span>Shopping Cart</span>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="cart-grid">
+            <!-- Cart Items -->
+            <div class="cart-items">
+                <div id="cartContent">
+                    <!-- Cart items will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="cart-summary" id="cartSummary" style="display: none;">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span class="amount" id="subtotal">$0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span class="amount" id="shipping">Calculated at checkout</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax</span>
+                    <span class="amount" id="tax">Calculated at checkout</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span class="amount" id="total">$0</span>
+                </div>
+                <button class="btn-checkout" onclick="proceedToCheckout()">
+                     Proceed to Checkout
+                </button>
+                <button class="btn-continue-shopping" onclick="window.location.href='index-en.html#products'">
+                    ← Continue Shopping
+                </button>
+                <div class="trust-badges">
+                    <p> Secure Checkout</p>
+                    <div class="badges">
+                        <span class="badge"> SSL Encrypted</span>
+                        <span class="badge"> Secure Payment</span>
+                        <span class="badge"> Buyer Protection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p> kenny@chinakomal.com</p>
+                <p> +86-10-xxxx-xxxx</p>
+                <p> No. xxx, xxx Road, Chaoyang District, Beijing, China</p>
+            </div>
+            <div>
+                <h3>Product Series</h3>
+                <a href="#">Drilling Equipment</a>
+                <a href="#">Solids Control System</a>
+                <a href="#">Mud Pump Parts</a>
+                <a href="#">Shaker Screen</a>
+                <a href="#">High Pressure Pump</a>
+            </div>
+            <div>
+                <h3>About Us</h3>
+                <a href="#">Company Profile</a>
+                <a href="#">Certificates</a>
+                <a href="#">News</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cart functionality
+        function getCart() {
+            const cart = localStorage.getItem('komalCart');
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('komalCart', JSON.stringify(cart));
+            updateCartCount();
+            renderCart();
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        function parsePrice(priceStr) {
+            // Extract minimum price from range like "$15,000 - $50,000"
+            const match = priceStr.match(/\$([\d,]+)/);
+            if (match) {
+                return parseFloat(match[1].replace(/,/g, ''));
+            }
+            return 0;
+        }
+
+        function formatPrice(price) {
+            return '$' + price.toLocaleString();
+        }
+
+        function renderCart() {
+            const cart = getCart();
+            const cartContent = document.getElementById('cartContent');
+            const cartSummary = document.getElementById('cartSummary');
+
+            if (cart.length === 0) {
+                cartContent.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon"></div>
+                        <h2>Your cart is empty</h2>
+                        <p>Looks like you haven't added any products to your cart yet.</p>
+                        <a href="index-en.html#products" class="btn-continue">Continue Shopping →</a>
+                    </div>
+                `;
+                cartSummary.style.display = 'none';
+                return;
+            }
+
+            let html = `
+                <div class="cart-header">
+                    <div>Product</div>
+                    <div>Price</div>
+                    <div>Quantity</div>
+                    <div>Total</div>
+                </div>
+            `;
+
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                const itemPrice = parsePrice(item.price);
+                const itemTotal = itemPrice * item.quantity;
+                subtotal += itemTotal;
+
+                html += `
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <div class="item-icon">${item.icon || ''}</div>
+                            <div class="item-details">
+                                <h3>${item.title}</h3>
+                                <p>Product Code: ${item.id}</p>
+                            </div>
+                        </div>
+                        <div class="item-price">${item.price}</div>
+                        <div class="item-quantity">
+                            <div class="quantity-input">
+                                <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                                <input type="number" value="${item.quantity}" min="1" readonly>
+                                <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="item-total">${formatPrice(itemTotal)}</div>
+                        <div class="item-remove">
+                            <button class="btn-remove" onclick="removeItem(${index})"></button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartContent.innerHTML = html;
+
+            // Update summary
+            document.getElementById('subtotal').textContent = formatPrice(subtotal);
+            document.getElementById('total').textContent = formatPrice(subtotal);
+            cartSummary.style.display = 'block';
+        }
+
+        function updateQuantity(index, change) {
+            const cart = getCart();
+            if (cart[index]) {
+                cart[index].quantity += change;
+                if (cart[index].quantity < 1) {
+                    cart[index].quantity = 1;
+                }
+                saveCart(cart);
+            }
+        }
+
+        function removeItem(index) {
+            const cart = getCart();
+            cart.splice(index, 1);
+            saveCart(cart);
+        }
+
+        function proceedToCheckout() {
+            window.location.href = 'checkout.html';
+        }
+
+        // Initialize
+        renderCart();
+        updateCartCount();
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPI 700HDL - Mud Pump Parts | CHINA KOMAL</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; }
+        .navbar { background: #1a365d; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #fbbf24; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #fbbf24; }
+        .product-hero { background: linear-gradient(135deg, #B85C3E 0%, #E85D3F 100%); color: white; padding: 150px 5% 80px; text-align: center; }
+        .product-hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .product-hero .subtitle { font-size: 1.3rem; opacity: 0.9; margin-bottom: 2rem; }
+        .breadcrumb { background: white; padding: 1rem 5%; border-bottom: 1px solid #e2e8f0; }
+        .breadcrumb a { color: #2c5282; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #718096; margin: 0 0.5rem; }
+        .product-main { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; }
+        .product-image img { width: 100%; height: 500px; object-fit: contain; display: block; }
+        .product-info h2 { color: #1a365d; font-size: 2rem; margin-bottom: 1rem; }
+        .product-info .description { color: #4a5568; line-height: 1.8; margin-bottom: 2rem; }
+        .specs-section { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .specs-section h3 { color: #2c5282; margin-bottom: 1rem; font-size: 1.4rem; border-left: 4px solid #B85C3E; padding-left: 1rem; }
+        .spec-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .spec-table thead th { background: #2c5282; color: white; font-weight: 700; padding: 0.4rem 0.3rem; text-align: left; border-bottom: 2px solid #1a365d; }
+        .spec-table tbody tr { border-bottom: 1px solid #e2e8f0; }
+        .spec-table tbody tr:nth-child(even) { background: #edf2f7; }
+        .spec-table tbody tr:nth-child(odd) { background: #f7fafc; }
+        .spec-table tbody tr:hover { background: #e8f4f8; }
+        .spec-table tbody td { padding: 0.3rem 0.25rem; } white-space: nowrap; }
+        .spec-table tbody td:first-child { font-weight: 600; color: #2c5282; width: 35%; }
+        .spec-table tbody td:last-child { color: #4a5568; }
+        .tables-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        @media (max-width: 1024px) { .tables-grid { grid-template-columns: 1fr; } }
+        .liners-table { width: 100%; }
+        .liners-table td:first-child { width: 10%; font-weight: 600; color: #2c5282; }
+        .liners-table td { padding: 0.3rem 0.25rem; white-space: nowrap; } white-space: nowrap; }
+        .valves-table { width: 100%; }
+        .valves-table td:first-child { width: 18%; font-weight: 600; color: #2c5282; }
+        .valves-table td { padding: 0.3rem 0.25rem; white-space: nowrap; } white-space: nowrap; }
+        .pistons-table td:first-child { width: 10%; }
+        .pistons-table td { white-space: nowrap; }
+        .rods-table td:first-child { width: 25%; }
+        .rods-table td { white-space: nowrap; }
+        .cta-section { text-align: center; background: #1a365d; color: white; padding: 3rem 2rem; border-radius: 12px; margin-top: 3rem; }
+        .cta-section h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .cta-section p { margin-bottom: 2rem; opacity: 0.9; }
+        .btn { display: inline-block; background: #fbbf24; color: #1a365d; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.3s; margin: 0.5rem; }
+        .btn:hover { transform: translateY(-3px); }
+        .btn-outline { background: transparent; border: 2px solid #fbbf24; color: #fbbf24; }
+        .btn-outline:hover { background: #fbbf24; color: #1a365d; }
+        footer { background: #1a365d; color: white; padding: 3rem 5%; margin-top: 4rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-section h4 { color: #fbbf24; margin-bottom: 1rem; font-size: 1.2rem; }
+        .footer-section p, .footer-section a { color: #e2e8f0; line-height: 1.8; text-decoration: none; display: block; }
+        .footer-section a:hover { color: #fbbf24; }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #a0aec0; }
+        @media (max-width: 768px) { .product-hero h1 { font-size: 2rem; } .product-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">CHINA <span>KOMAL</span></div>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="index-en.html#about">About</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="product-hero">
+        <h1> OPI 700HDL</h1>
+        <p class="subtitle">Triplex Mud Pump - Complete Spare Parts & Expendables (7×8 Configuration)</p>
+    </section>
+    <div class="breadcrumb">
+        <a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=mud-pump">Mud Pump Parts</a><span>›</span><strong>OPI 700HDL</strong>
+    </div>
+    <main class="product-main">
+        <div class="product-grid">
+            <div class="product-image"><img src="images/mud-pump-parts-hero.jpg" alt="OPI 700HDL Mud Pump Parts"></div>
+            <div class="product-info">
+                <h2>OPI 700HDL Mud Pump Parts</h2>
+                <p class="description">
+                    CHINA KOMAL supplies comprehensive spare parts for OPI 700HDL mud pumps, 
+                    including liners, liner packing, valves, valve seats, pistons, rods, and all wear components. 
+                    All 700HDL parts are manufactured to OEM specifications with strict quality control for 
+                    reliable performance and extended service life in demanding drilling conditions.
+                </p>
+                <p class="description">
+                    Our OPI 700HDL parts are fully interchangeable with original equipment and offer 
+                    superior value with competitive pricing and immediate availability.
+                </p>
+            </div>
+        </div>
+
+        <section class="specs-section">
+            <h3> Liners & Liner Packing (7×8)</h3>
+            <div class="tables-grid">
+                <div>
+                    <table class="spec-table liners-table">
+                        <thead>
+                            <tr>
+                                <th>Size</th>
+                                <th>LINER</th>
+                                <th>LINER PACKING</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>4"</td><td>0481-40</td><td>KMG-0753</td></tr>
+                            <tr><td>4½"</td><td>0481-44</td><td>KMG-0754</td></tr>
+                            <tr><td>5"</td><td>0481-50</td><td>KMG-0742</td></tr>
+                            <tr><td>5½"</td><td>0481-54</td><td>KMG-0743</td></tr>
+                            <tr><td>6"</td><td>0481-60</td><td>KMG-0745</td></tr>
+                            <tr><td>6½"</td><td>0481-64</td><td>KMG-0746</td></tr>
+                            <tr><td>7"</td><td>0481-70</td><td>KMG-0756</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table class="spec-table liners-table">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Gaskets</th>
+                                <th>Part No.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="2">Valve Cover Gasket</td><td>KMG-0746</td></tr>
+                            <tr><td colspan="2">Cylinder Head Gasket</td><td>KMG-0475</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="specs-section">
+            <h3> Valves & Valve Seats</h3>
+            <table class="spec-table valves-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>4 WEB</th>
+                        <th>FULL OPEN</th>
+                        <th>G2</th>
+                        <th>ROUGHNECK</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>VALVE (Urethane Insert)</td><td>U5B-EH</td><td>6FO-V1</td><td>1560965</td><td>RN6-V1</td></tr>
+                    <tr><td>VALVE (Rubber Insert)</td><td>5BEH</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+                    <tr><td>VALVE SEAT</td><td>6ADD-B6</td><td>6FO-S1</td><td>1561380</td><td>RN6-S6</td></tr>
+                    <tr><td>VALVE SPRING</td><td>5710-115</td><td>5710-115</td><td>1560701</td><td>5710-115</td></tr>
+                    <tr><td>VALVE INSERT (Red Thunder)</td><td>UDD-6ABHT</td><td>N/A</td><td>1560587</td><td>N/A</td></tr>
+                    <tr><td>VALVE INSERT (Urethane)</td><td>UDD-6AB</td><td>6FO-SI</td><td>N/A</td><td>RN6-I</td></tr>
+                    <tr><td>VALVE INSERT (Rubber)</td><td>DD-6AB</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+                    <tr><td>VALVE SEAT PULLER HEAD</td><td>1700-6</td><td>1700-6FO</td><td>1700-6G2</td><td>1700-6FO</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="specs-section">
+            <h3> Pistons</h3>
+            <table class="spec-table pistons-table">
+                <thead>
+                    <tr>
+                        <th>Piston Size</th>
+                        <th>Red Thunder Bonded Pistons</th>
+                        <th>Imperial Piston</th>
+                        <th>Imperial Rubber Kits</th>
+                        <th>Rubber Bonded</th>
+                        <th>Long Life (Urethane)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>4½"</td><td>RT-440</td><td>I44HK14/15</td><td>I44HK</td><td>RB-440</td><td>LL-440</td></tr>
+                    <tr><td>5"</td><td>RT-500</td><td>I50HB14/15</td><td>I50HB</td><td>RB-500</td><td>LL-500</td></tr>
+                    <tr><td>5½"</td><td>RT-540</td><td>I54HB14/15</td><td>I54HB</td><td>RB-540</td><td>LL-540</td></tr>
+                    <tr><td>6"</td><td>RT-600</td><td>I60HB14/15</td><td>I60HB</td><td>RB-600</td><td>LL-600</td></tr>
+                    <tr><td>6½"</td><td>RT-640</td><td>I64HL14/15</td><td>I64HL</td><td>RB-640</td><td>LL-640</td></tr>
+                    <tr><td>7"</td><td>RT-700</td><td>I70HL14/15</td><td>I70HL</td><td>RB-700</td><td>LL-700</td></tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">*1/4 Size are available upon request</p>
+        </section>
+
+        <section class="specs-section">
+            <h3> Rods</h3>
+            <table class="spec-table rods-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>PART NO.</th>
+                        <th>PART NO.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>PISTON ROD</td><td>0482</td><td>0481</td></tr>
+                    <tr><td>SUB ROD</td><td>0482B</td><td>0481B</td></tr>
+                    <tr><td>EXTENSION ROD</td><td>16-0481</td><td>16-0481</td></tr>
+                    <tr><td>EXTENSION ROD CLAMP</td><td>24-0481</td><td>N/A</td></tr>
+                    <tr><td>ROD CLAMP</td><td>24-0482</td><td>N/A</td></tr>
+                    <tr><td>PISTON ROD NUT</td><td>7403384</td><td>7403384</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="cta-section">
+            <h3>Need OPI 700HDL Parts?</h3>
+            <p>Contact us for complete parts list, pricing, and immediate delivery!</p>
+            <a href="index-en.html#contact" class="btn">Request Parts List</a>
+            <a href="series.html?s=mud-pump" class="btn btn-outline">View All Mud Pump Parts</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h4>CHINA KOMAL</h4><p>CHINA KOMAL INTERNATIONAL CO., LTD</p><p>Professional petroleum equipment manufacturer</p></div>
+            <div class="footer-section"><h4>Quick Links</h4><a href="index-en.html">Home</a><a href="index-en.html#products">Products</a><a href="index-en.html#about">About Us</a><a href="index-en.html#contact">Contact</a></div>
+            <div class="footer-section"><h4>Contact Us</h4><p>Email: info@chinakomal.com</p><p>Website: www.chinakomal.com</p><p>Location: Beijing, China</p></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
+    </footer>
+</body>
+</html>

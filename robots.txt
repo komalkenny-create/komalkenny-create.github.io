@@ -1,0 +1,43 @@
+# robots.txt for CHINA KOMAL INTERNATIONAL CO., LTD
+# www.chinakomal.com
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin/private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+
+# Sitemap location
+Sitemap: https://www.chinakomal.com/sitemap.xml
+
+# Crawl-delay to be polite to server
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+
+# Baidu specific (important for Chinese market)
+User-agent: Baiduspider
+Allow: /
+
+# Yandex specific
+User-agent: Yandex
+Allow: /
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - CHINA KOMAL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: #f7fafc;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        /* User Header */
+        .user-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 120px 5% 60px;
+        }
+
+        .user-info {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .user-avatar-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24 0%, #f6a81c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1a365d;
+            border: 4px solid rgba(255,255,255,0.2);
+        }
+
+        .user-details h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-details p {
+            opacity: 0.9;
+        }
+
+        /* User Container */
+        .user-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+        }
+
+        /* Sidebar */
+        .user-sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            height: fit-content;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 12px 15px;
+            color: #4a5568;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: #f7fafc;
+            color: #1a365d;
+        }
+
+        .sidebar-menu a.active {
+            background: linear-gradient(135deg, #fbbf24 0%, #f6a81c 100%);
+            color: #1a365d;
+        }
+
+        /* Main Content */
+        .user-main {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            color: #1a365d;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        /* Profile Form */
+        .profile-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1a365d;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .btn-save {
+            background: linear-gradient(135deg, #fbbf24 0%, #f6a81c 100%);
+            color: #1a365d;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4);
+        }
+
+        /* Orders Table */
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .orders-table th,
+        .orders-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .orders-table th {
+            background: #f7fafc;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .order-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .order-status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .order-status.processing {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .order-status.completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        /* Blog Posts */
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .blog-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .blog-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .blog-item-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .blog-item-content {
+            flex: 1;
+        }
+
+        .blog-item-content h3 {
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-item-content p {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-item-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+
+        /* Logout Button */
+        .btn-logout {
+            width: 100%;
+            background: #e53e3e;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-logout:hover {
+            background: #c53030;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a365d;
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e0;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2c5282;
+            color: #cbd5e0;
+        }
+
+        @media (max-width: 768px) {
+            .user-container {
+                grid-template-columns: 1fr;
+            }
+
+            .user-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-form {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .blog-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="index-en.html" class="logo">CHINA KOMAL</a>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index-en.html#about">About Us</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- User Header -->
+    <section class="user-header">
+        <div class="user-info">
+            <div class="user-avatar-large" id="userAvatar">U</div>
+            <div class="user-details">
+                <h1 id="userName">User Name</h1>
+                <p id="userEmail">user@email.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Container -->
+    <div class="user-container">
+        <!-- Sidebar -->
+        <aside class="user-sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" onclick="showSection('profile'); return false;"> Profile Settings</a></li>
+                <li><a href="#" onclick="showSection('orders'); return false;"> My Orders</a></li>
+                <li><a href="#" onclick="showSection('blog'); return false;"> My Blog Posts</a></li>
+                <li><a href="#" onclick="showSection('security'); return false;"> Security</a></li>
+            </ul>
+            <button class="btn-logout" onclick="logout()">
+                 Logout
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="user-main" id="mainContent">
+            <!-- Profile Section -->
+            <div id="profileSection">
+                <h2 class="section-title">Profile Settings</h2>
+                <form class="profile-form" onsubmit="saveProfile(event)">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" id="firstName" value="John">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" id="lastName" value="Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="email" value="john.doe@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="phone" value="+1 (555) 123-4567">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Company Name</label>
+                        <input type="text" id="company" value="ABC Oilfield Services">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Billing Address</label>
+                        <input type="text" id="address" value="123 Main Street, Houston, TX 77001">
+                    </div>
+                    <button type="submit" class="btn-save">Save Changes</button>
+                </form>
+            </div>
+
+            <!-- Orders Section (hidden by default) -->
+            <div id="ordersSection" style="display: none;">
+                <h2 class="section-title">My Orders</h2>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <tr>
+                            <td>KOMAL-2026-001234</td>
+                            <td>March 20, 2026</td>
+                            <td>$45,000</td>
+                            <td><span class="order-status processing">Processing</span></td>
+                            <td><a href="#" style="color: #E85D3F;">View Details →</a></td>
+                        </tr>
+                        <tr>
+                            <td>KOMAL-2026-001189</td>
+                            <td>March 15, 2026</td>
+                            <td>$12,500</td>
+                            <td><span class="order-status completed">Completed</span></td>
+                            <td><a href="#" style="color: #E85D3F;">View Details →</a></td>
+                        </tr>
+                        <tr>
+                            <td>KOMAL-2026-001056</td>
+                            <td>February 28, 2026</td>
+                            <td>$8,200</td>
+                            <td><span class="order-status completed">Completed</span></td>
+                            <td><a href="#" style="color: #E85D3F;">View Details →</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Blog Section (hidden by default) -->
+            <div id="blogSection" style="display: none;">
+                <h2 class="section-title">My Blog Posts</h2>
+                <div class="blog-list">
+                    <div class="blog-item">
+                        <div class="blog-item-icon"></div>
+                        <div class="blog-item-content">
+                            <h3>Industry Trends Q1 2026</h3>
+                            <p>Analysis of current market conditions and equipment demand forecasts...</p>
+                            <div class="blog-item-meta">
+                                <span> March 18, 2026</span>
+                                <span> 1,234 views</span>
+                                <span> 12 comments</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-item">
+                        <div class="blog-item-icon"></div>
+                        <div class="blog-item-content">
+                            <h3>Best Practices for Equipment Maintenance</h3>
+                            <p>Essential tips for extending the service life of your drilling equipment...</p>
+                            <div class="blog-item-meta">
+                                <span> March 10, 2026</span>
+                                <span> 2,567 views</span>
+                                <span> 28 comments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Section (hidden by default) -->
+            <div id="securitySection" style="display: none;">
+                <h2 class="section-title">Security Settings</h2>
+                <form class="profile-form" onsubmit="changePassword(event)">
+                    <div class="form-group full-width">
+                        <label>Current Password</label>
+                        <input type="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" minlength="8" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm New Password</label>
+                        <input type="password" minlength="8" required>
+                    </div>
+                    <button type="submit" class="btn-save">Change Password</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p> kenny@chinakomal.com</p>
+                <p> +86-10-xxxx-xxxx</p>
+                <p> No. xxx, xxx Road, Chaoyang District, Beijing, China</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="index-en.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="user-center.html">My Account</a>
+                <a href="index-en.html#contact">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Check authentication
+        const user = localStorage.getItem('komalUser');
+        if (!user) {
+            window.location.href = 'login.html';
+        } else {
+            const userData = JSON.parse(user);
+            document.getElementById('userName').textContent = userData.name;
+            document.getElementById('userEmail').textContent = userData.email;
+            document.getElementById('userAvatar').textContent = userData.name.charAt(0).toUpperCase();
+            
+            // Populate form
+            document.getElementById('firstName').value = userData.firstName || userData.name.split(' ')[0];
+            document.getElementById('lastName').value = userData.lastName || userData.name.split(' ')[1] || '';
+            document.getElementById('email').value = userData.email;
+            document.getElementById('company').value = userData.company || '';
+            document.getElementById('phone').value = userData.phone || '';
+        }
+
+        function showSection(section) {
+            // Hide all sections
+            document.getElementById('profileSection').style.display = 'none';
+            document.getElementById('ordersSection').style.display = 'none';
+            document.getElementById('blogSection').style.display = 'none';
+            document.getElementById('securitySection').style.display = 'none';
+
+            // Remove active class from all menu items
+            document.querySelectorAll('.sidebar-menu a').forEach(a => {
+                a.classList.remove('active');
+            });
+
+            // Show selected section
+            if (section === 'profile') {
+                document.getElementById('profileSection').style.display = 'block';
+                event.target.classList.add('active');
+            } else if (section === 'orders') {
+                document.getElementById('ordersSection').style.display = 'block';
+                event.target.classList.add('active');
+            } else if (section === 'blog') {
+                document.getElementById('blogSection').style.display = 'block';
+                event.target.classList.add('active');
+            } else if (section === 'security') {
+                document.getElementById('securitySection').style.display = 'block';
+                event.target.classList.add('active');
+            }
+        }
+
+        function saveProfile(event) {
+            event.preventDefault();
+            alert('Profile updated successfully!');
+        }
+
+        function changePassword(event) {
+            event.preventDefault();
+            alert('Password changed successfully!');
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('komalUser');
+                window.location.href = 'index-en.html';
+            }
+        }
+    </script>
+</body>
+</html>

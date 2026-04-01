@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - CHINA KOMAL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: #1a365d;
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #fbbf24;
+            color: #1a365d;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* Banner */
+        .page-banner {
+            background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(44, 82, 130, 0.7)), url('images/petroleum equipment banner.jpg') center/cover no-repeat;
+            color: white;
+            padding: 120px 5% 60px;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .breadcrumb {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: #fbbf24;
+            text-decoration: none;
+        }
+
+        /* Product Detail Section */
+        .product-detail {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 60px;
+        }
+
+        .product-image {
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            border-radius: 15px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-info h1 {
+            font-size: 2.2rem;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .product-category {
+            color: #718096;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: #E85D3F;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price span {
+            font-size: 1rem;
+            color: #718096;
+            font-weight: normal;
+        }
+
+        .product-description {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .product-specs {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .product-specs h3 {
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+
+        .product-specs ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .product-specs li {
+            padding: 0.35rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-specs li:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .spec-value {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quantity-selector label {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .quantity-input {
+            display: flex;
+            align-items: center;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            background: #f7fafc;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .quantity-input input {
+            width: 60px;
+            text-align: center;
+            border: none;
+            font-size: 1rem;
+            padding: 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-add-cart {
+            flex: 1;
+            background: #fbbf24;
+            color: #1a365d;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-add-cart:hover {
+            background: #f6a81c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.4);
+        }
+
+        .btn-buy-now {
+            flex: 1;
+            background: #E85D3F;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-buy-now:hover {
+            background: #d44f2b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 93, 63, 0.4);
+        }
+
+        /* Related Products */
+        .related-products {
+            padding: 60px 5%;
+            background: #f7fafc;
+        }
+
+        .related-products h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #1a365d;
+            margin-bottom: 2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-card-image {
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-card-info {
+            padding: 1.5rem;
+        }
+
+        .product-card-info h3 {
+            color: #1a365d;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card-info p {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card-price {
+            color: #E85D3F;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a365d;
+            color: white;
+            padding: 50px 5% 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e0;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2c5282;
+            color: #cbd5e0;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1a365d;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            border-left: 4px solid #48bb78;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-image {
+                height: 350px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">CHINA KOMAL</div>
+        <ul class="nav-links">
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#products">Products</a></li>
+            <li><a href="index-en.html#about">About Us</a></li>
+            <li><a href="index-en.html#news">News</a></li>
+            <li><a href="index-en.html#contact">Contact</a></li>
+        </ul>
+        <div class="cart-icon" onclick="window.location.href='cart.html'">
+             Cart
+            <span class="cart-count" id="cartCount">0</span>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1 id="productTitle">Crown Block</h1>
+        <div class="breadcrumb">
+            <a href="index-en.html">Home</a> / 
+            <a href="index-en.html#products">Products</a> / 
+            <a href="#">Drilling Equipment</a> / 
+            <span id="productBreadcrumb">Crown Block</span>
+        </div>
+    </section>
+
+    <!-- Product Detail -->
+    <section class="product-detail">
+        <div class="product-grid">
+            <!-- Product Image -->
+            <div class="product-image" id="productImage">
+                
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <h1 id="infoTitle">Crown Block</h1>
+                <p class="product-category">Category: Drilling Equipment</p>
+                <div class="product-price" id="productPrice">
+                    $15,000 - $50,000 <span>(Price varies by specification)</span>
+                </div>
+                <p class="product-description" id="productDescription">
+                    Heavy-duty crown block assembly designed for modern drilling rigs. Features multiple sheaves configured for optimal drilling line performance. Manufactured with high-strength alloy steel and precision-machined for smooth operation under extreme loads.
+                </p>
+
+                <!-- Specifications -->
+                <div class="product-specs">
+                    <h3>Technical Specifications</h3>
+                    <ul>
+                        <li>
+                            <span class="spec-label">Model</span>
+                            <span class="spec-value" id="specModel">TB-350</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">Max Load</span>
+                            <span class="spec-value" id="specLoad">350 tons</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">Sheaves</span>
+                            <span class="spec-value" id="specSheaves">4-6</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">Material</span>
+                            <span class="spec-value" id="specMaterial">Alloy Steel</span>
+                        </li>
+                        <li>
+                            <span class="spec-label">Certification</span>
+                            <span class="spec-value" id="specCert">API 8C</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quantity Selector -->
+                <div class="quantity-selector">
+                    <label>Quantity:</label>
+                    <div class="quantity-input">
+                        <button class="quantity-btn" onclick="decreaseQty()">-</button>
+                        <input type="number" id="quantity" value="1" min="1" readonly>
+                        <button class="quantity-btn" onclick="increaseQty()">+</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-add-cart" onclick="addToCart()">
+                         Add to Cart
+                    </button>
+                    <button class="btn-buy-now" onclick="buyNow()">
+                         Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products">
+        <h2>Related Products</h2>
+        <div class="products-grid">
+            <div class="product-card" onclick="location.href='product-detail.html?p=traveling-block'">
+                <div class="product-card-image"></div>
+                <div class="product-card-info">
+                    <h3>Traveling Block</h3>
+                    <p>High-capacity traveling block with hook assembly</p>
+                    <div class="product-card-price">$12,000 - $45,000</div>
+                </div>
+            </div>
+            <div class="product-card" onclick="location.href='product-detail.html?p=rotary-table'">
+                <div class="product-card-image"></div>
+                <div class="product-card-info">
+                    <h3>Rotary Table</h3>
+                    <p>Precision rotary table for drill string rotation</p>
+                    <div class="product-card-price">$8,000 - $30,000</div>
+                </div>
+            </div>
+            <div class="product-card" onclick="location.href='product-detail.html?p=hook'">
+                <div class="product-card-image"></div>
+                <div class="product-card-info">
+                    <h3>Hook</h3>
+                    <p>Heavy-duty drilling hook with safety latch</p>
+                    <div class="product-card-price">$5,000 - $20,000</div>
+                </div>
+            </div>
+            <div class="product-card" onclick="location.href='product-detail.html?p=swivel'">
+                <div class="product-card-image"></div>
+                <div class="product-card-info">
+                    <h3>Swivel</h3>
+                    <p>High-pressure swivel for drilling fluid circulation</p>
+                    <div class="product-card-price">$6,000 - $25,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p> kenny@chinakomal.com</p>
+                <p> +86-10-xxxx-xxxx</p>
+                <p> No. xxx, xxx Road, Chaoyang District, Beijing, China</p>
+            </div>
+            <div>
+                <h3>Product Series</h3>
+                <a href="#">Drilling Equipment</a>
+                <a href="#">Solids Control System</a>
+                <a href="#">Mud Pump Parts</a>
+                <a href="#">Shaker Screen</a>
+                <a href="#">High Pressure Pump</a>
+            </div>
+            <div>
+                <h3>About Us</h3>
+                <a href="#">Company Profile</a>
+                <a href="#">Certificates</a>
+                <a href="#">News</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast success" id="toast">
+         Product added to cart successfully!
+    </div>
+
+    <script>
+        // Product Data
+        const products = {
+            'crown-block': {
+                title: 'Crown Block',
+                price: '$15,000 - $50,000',
+                description: 'Heavy-duty crown block assembly designed for modern drilling rigs. Features multiple sheaves configured for optimal drilling line performance. Manufactured with high-strength alloy steel and precision-machined for smooth operation under extreme loads.',
+                specs: { model: 'TB-350', load: '350 tons', sheaves: '4-6', material: 'Alloy Steel', cert: 'API 8C' },
+                icon: ''
+            },
+            'traveling-block': {
+                title: 'Traveling Block',
+                price: '$12,000 - $45,000',
+                description: 'High-capacity traveling block with integrated hook assembly for efficient hoisting operations. Designed for maximum safety and durability in demanding drilling environments.',
+                specs: { model: 'TB-300', load: '300 tons', sheaves: '3-5', material: 'Alloy Steel', cert: 'API 8C' },
+                icon: ''
+            },
+            'rotary-table': {
+                title: 'Rotary Table',
+                price: '$8,000 - $30,000',
+                description: 'Precision rotary table for drill string rotation and torque transmission. Features hardened gear drive and robust construction for reliable performance.',
+                specs: { model: 'RT-495', torque: '49,500 ft-lb', opening: '27.5 inch', material: 'Alloy Steel', cert: 'API 7K' },
+                icon: ''
+            },
+            'hook': {
+                title: 'Hook',
+                price: '$5,000 - $20,000',
+                description: 'Heavy-duty drilling hook with safety latch for secure load suspension. Engineered for maximum strength and operational safety.',
+                specs: { model: 'YDG-250', load: '250 tons', opening: '8 inch', material: 'Alloy Steel', cert: 'API 8C' },
+                icon: ''
+            },
+            'swivel': {
+                title: 'Swivel',
+                price: '$6,000 - $25,000',
+                description: 'High-pressure swivel for drilling fluid circulation and rotation. Features premium bearings and seals for extended service life.',
+                specs: { model: 'SL-350', pressure: '5,000 psi', load: '350 tons', material: 'Alloy Steel', cert: 'API 8C' },
+                icon: ''
+            }
+        };
+
+        // Load product from URL parameter
+        function loadProduct() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('p') || 'crown-block';
+            const product = products[productId] || products['crown-block'];
+
+            document.getElementById('productTitle').textContent = product.title;
+            document.getElementById('productBreadcrumb').textContent = product.title;
+            document.getElementById('infoTitle').textContent = product.title;
+            document.getElementById('productPrice').innerHTML = `${product.price} <span>(Price varies by specification)</span>`;
+            document.getElementById('productDescription').textContent = product.description;
+            document.getElementById('productImage').textContent = product.icon;
+            document.getElementById('specModel').textContent = product.specs.model;
+            document.getElementById('specLoad').textContent = product.specs.load;
+            document.getElementById('specSheaves').textContent = product.specs.sheaves;
+            document.getElementById('specMaterial').textContent = product.specs.material;
+            document.getElementById('specCert').textContent = product.specs.cert;
+        }
+
+        // Quantity controls
+        function increaseQty() {
+            const qtyInput = document.getElementById('quantity');
+            qtyInput.value = parseInt(qtyInput.value) + 1;
+        }
+
+        function decreaseQty() {
+            const qtyInput = document.getElementById('quantity');
+            if (parseInt(qtyInput.value) > 1) {
+                qtyInput.value = parseInt(qtyInput.value) - 1;
+            }
+        }
+
+        // Cart functionality
+        function getCart() {
+            const cart = localStorage.getItem('komalCart');
+            return cart ? JSON.parse(cart) : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('komalCart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        function addToCart() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('p') || 'crown-block';
+            const product = products[productId] || products['crown-block'];
+            const quantity = parseInt(document.getElementById('quantity').value);
+
+            const cart = getCart();
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: productId,
+                    title: product.title,
+                    price: product.price,
+                    icon: product.icon,
+                    quantity: quantity
+                });
+            }
+
+            saveCart(cart);
+            showToast('Product added to cart successfully!');
+        }
+
+        function buyNow() {
+            addToCart();
+            setTimeout(() => {
+                window.location.href = 'cart.html';
+            }, 500);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = ' ' + message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Initialize
+        loadProduct();
+        updateCartCount();
+    </script>
+</body>
+</html>
