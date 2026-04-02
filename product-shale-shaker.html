@@ -21,8 +21,22 @@
         .breadcrumb span { color: #718096; margin: 0 0.5rem; }
         .product-main { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
-        .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-        .product-image img { width: 100%; height: 350px; object-fit: cover; display: block; }
+        /* 关键修改：缩小主图容器尺寸，同时保持图片填满容器 */
+        .product-image { 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+            width: 90%; /* 从100%改为90%缩小宽度 */
+            height: 90%; /* 从100%改为90%缩小高度 */
+            margin: 0 auto; /* 居中显示 */
+        }
+        /* 保持图片填满缩小后的容器 */
+        .product-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+        }
         .image-gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
         .gallery-item { border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid transparent; }
         .gallery-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
@@ -69,7 +83,21 @@
         .footer-section p, .footer-section a { color: #e2e8f0; line-height: 1.8; text-decoration: none; display: block; }
         .footer-section a:hover { color: #fbbf24; }
         .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: #a0aec0; }
-        @media (max-width: 768px) { .product-hero h1 { font-size: 2rem; } .product-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
+        @media (max-width: 768px) { 
+            .product-hero h1 { font-size: 2rem; } 
+            .product-grid { grid-template-columns: 1fr; } 
+            .nav-links { display: none; } 
+            /* 移动端同步缩小主图容器 */
+            .product-image { 
+                width: 90%; 
+                height: auto; 
+                margin: 0 auto;
+            }
+            .product-image img { 
+                height: auto; 
+                min-height: 280px; /* 同步缩小移动端保底高度 */
+            }
+        }
     </style>
 </head>
 <body>
