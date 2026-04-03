@@ -17,11 +17,6 @@
         .breadcrumb a:hover { text-decoration: underline; }
         .breadcrumb span { color: #718096; margin: 0 0.5rem; }
         .product-main { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
-        .image-gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
-        .gallery-item { border-radius: 10px; overflow: visible; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid transparent; background: white; padding: 10px; }
-        .gallery-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-        .gallery-item.active { border-color: #2c5282; }
-        .gallery-item img { width: 100%; height: auto; object-fit: contain; display: block; transition: opacity 0.3s; }
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
         .product-image { border-radius: 15px; overflow: visible; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: white; display: inline-block; padding: 15px; margin: 0 auto; }
         .product-image img { width: 100%; max-width: 400px; height: auto; object-fit: contain; display: block; transition: opacity 0.3s; }
@@ -30,12 +25,6 @@
         .product-info h2 { color: #1a365d; font-size: 2rem; margin-bottom: 0.75rem; }
         .product-info .subtitle { font-size: 1.1rem; color: #2c5282; font-weight: 600; margin-bottom: 1rem; }
         .product-info .description { color: #4a5568; line-height: 1.8; margin-bottom: 1.2rem; font-size: 0.95rem; }
-        .quick-detail-box { background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%); border-left: 4px solid #17A589; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; }
-        .quick-detail-box h3 { color: #1a365d; margin-bottom: 1rem; font-size: 1.2rem; }
-        .quick-detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
-        .quick-detail-item { background: white; padding: 0.75rem; border-radius: 8px; }
-        .quick-detail-item .label { font-size: 0.8rem; color: #718096; margin-bottom: 0.25rem; }
-        .quick-detail-item .value { font-size: 1rem; color: #2c5282; font-weight: 600; }
         .product-features { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .product-features h3 { color: #2c5282; margin-bottom: 1rem; font-size: 1.4rem; }
         .specifications { background: #f7fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -102,13 +91,9 @@
     </div>
     
     <main class="product-main">
-        <div class="image-gallery">
-            <div class="gallery-item active" onclick="changeMainImage(this, 'images/产品卡片图/crown-block-main.png')"><img src="images/产品卡片图/crown-block-main.png" alt="Crown Block - Main View"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/crown-block-side.png')"><img src="images/crown-block-side.png" alt="Crown Block - Side View"></div>
-        </div>
         <div class="product-grid">
             <div class="product-image">
-                <img id="mainImage" src="images/产品卡片图/crown-block-main.png" alt="Crown Block - Main View" style="opacity: 1;">
+                <img src="images/产品卡片图/crown-block-main.png" alt="Crown Block - Main View">
             </div>
             <div class="product-info">
                 <h2>Crown Block</h2>
@@ -120,28 +105,6 @@
                     provides mechanical advantage for lifting and lowering the drill string, casing, and other 
                     drilling equipment.
                 </p>
-                
-                <div class="quick-detail-box">
-                    <h3>⚡ Key Features</h3>
-                    <div class="quick-detail-grid">
-                        <div class="quick-detail-item">
-                            <div class="label">Type</div>
-                            <div class="value">Crown Block</div>
-                        </div>
-                        <div class="quick-detail-item">
-                            <div class="label">Application</div>
-                            <div class="value">Drilling Rig</div>
-                        </div>
-                        <div class="quick-detail-item">
-                            <div class="label">Position</div>
-                            <div class="value">Derrick Top</div>
-                        </div>
-                        <div class="quick-detail-item">
-                            <div class="label">Function</div>
-                            <div class="value">Load Support</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -381,33 +344,5 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
     </footer>
-    <script>
-        function changeMainImage(thumbnail, src) {
-            const mainImg = document.getElementById('mainImage');
-            
-            // Fade out
-            mainImg.style.transition = 'opacity 0.3s ease';
-            mainImg.style.opacity = '0';
-            
-            // Change image after fade out completes
-            setTimeout(() => {
-                mainImg.src = src;
-                // Wait for image to load, then fade in
-                mainImg.onload = () => {
-                    mainImg.style.opacity = '1';
-                };
-                // Fallback in case image is cached
-                if (mainImg.complete) {
-                    mainImg.style.opacity = '1';
-                }
-            }, 300);
-            
-            // Update active state on thumbnails
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            thumbnail.classList.add('active');
-        }
-    </script>
 </body>
 </html>
