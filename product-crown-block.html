@@ -25,12 +25,16 @@
         .product-info h2 { color: #1a365d; font-size: 2rem; margin-bottom: 0.75rem; }
         .product-info .subtitle { font-size: 1.1rem; color: #2c5282; font-weight: 600; margin-bottom: 1rem; }
         .product-info .description { color: #4a5568; line-height: 1.8; margin-bottom: 1.2rem; font-size: 0.95rem; }
-        .product-navigation { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #f7fafc 0%, #ebf8ff 100%); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border-radius: 8px; text-decoration: none; color: #2c5282; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); background: #1a365d; color: white; }
+                .product-navigation { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #f7fafc 0%, #ebf8ff 100%); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: white; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid transparent; }
+        .nav-btn.prev { background: #1a365d; color: white; }
+        .nav-btn.prev:hover { background: #0f2744; box-shadow: 0 4px 8px rgba(26,54,93,0.3); }
+        .nav-btn.next { background: white; color: #1a365d; }
+        .nav-btn.next:hover { background: #f7fafc; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
         .nav-btn .arrow { font-size: 1.2rem; }
         .nav-btn.prev .arrow { margin-right: 0.25rem; }
         .nav-btn.next .arrow { margin-left: 0.25rem; }
+
         .product-features { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .product-features h3 { color: #2c5282; margin-bottom: 1rem; font-size: 1.4rem; }
         .specifications { background: #f7fafc; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
