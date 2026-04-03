@@ -29,13 +29,7 @@
         .product-image img { width: 100%; height: 350px; object-fit: cover; display: block; transition: opacity 0.3s; }
         .product-info h2 { color: #1a365d; font-size: 1.8rem; margin-bottom: 0.75rem; }
         .product-info .price { font-size: 1.5rem; color: #2c5282; font-weight: bold; margin-bottom: 1.5rem; }
-        .product-info .description { color: #4a5568; line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.9rem; }        .product-navigation { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #f7fafc 0%, #ebf8ff 100%); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border-radius: 8px; text-decoration: none; color: #2c5282; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); background: #1a365d; color: white; }
-        .nav-btn .arrow { font-size: 1.2rem; }
-        .nav-btn.prev .arrow { margin-right: 0.25rem; }
-        .nav-btn.next .arrow { margin-left: 0.25rem; }
-
+        .product-info .description { color: #4a5568; line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.9rem; }
         .product-features { background: white; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .product-features h3 { color: #2c5282; margin-bottom: 0.75rem; font-size: 1.2rem; }
         .feature-list { list-style: none; }
@@ -89,26 +83,67 @@
     </nav>
     <div class="breadcrumb"><a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=petroleum">Drilling Equipment</a><span>›</span><strong>Wheels Tires</strong></div>
     <main class="product-main">
+        <div class="image-gallery">
+            <div class="gallery-item active" onclick="changeMainImage(this, 'images/products/shale-shaker-01.jpg')"><img src="images/products/drilling-equipment-01.jpg" alt="Shale Shaker - View 1"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-02.jpg')"><img src="images/products/shale-shaker-02.jpg" alt="Shale Shaker - View 2"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-03.jpg')"><img src="images/products/shale-shaker-03.jpg" alt="Shale Shaker - View 3"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-04.jpg')"><img src="images/products/shale-shaker-04.jpg" alt="Shale Shaker - View 4"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-05.jpg')"><img src="images/products/shale-shaker-05.jpg" alt="Shale Shaker - View 5"></div>
+        </div>
         <div class="product-grid">
-            <div class="product-image"><img src="images/产品卡片图/wheels and tires.png" alt="Wheels & Tires - Main View"></div>
+            <div class="product-image"><img id="mainImage" src="images/products/drilling-equipment-01.jpg" alt="Shale Shaker - Main View"></div>
             <div class="product-info">
                 <h2>Wheels and Tires</h2>
                 <p class="price">Professional Drilling Equipment</p>
                 <p class="description">The Wheels and Tires are designed for drilling rig chassis and mobile drilling equipment.</p>
             </div>
         </div>
-        <!-- Product Navigation -->
-        <div class="product-navigation">
-            <a href="product-vehicle-axle.html" class="nav-btn prev">
-                <span class="arrow">←</span>
-                <span>Previous: Vehicle Axle</span>
-            </a>
-            <a href="product-truck-mounted-rig.html" class="nav-btn next">
-                <span>Next: Truck Mounted Rig</span>
-                <span class="arrow">→</span>
-            </a>
+        <section class="product-features">
+            <h3>Key Features</h3>
+            <ul class="feature-list"><li><strong>Types</strong> - All single or front single/rear double</li>
+<li><strong>Single Tire</strong> - 18-22.5 tubeless</li>
+<li><strong>Single Pressure</strong> - 0.70 Mpa</li>
+<li><strong>Single Load</strong> - 4.975t</li>
+<li><strong>Double Tire</strong> - 12-20 tubeless</li>
+<li><strong>Double Pressure</strong> - 0.63 Mpa</li>
+<li><strong>Double Load</strong> - 3.25t</li>
+</ul>
+        </section>
+        <section class="specifications">
+            <h3>Technical Specifications</h3>
+            <table class="spec-table">
+                <tr><td>Single Tire Size</td><td>18-22.5 tubeless tire</td></tr>
+                <tr><td>Single Tire Air Pressure</td><td>0.70 Mpa</td></tr>
+                <tr><td>Single Tire Load Capacity</td><td>4.975t</td></tr>
+                <tr><td>Single Tire Wheel Felloe</td><td>14-22.5</td></tr>
+                <tr><td>Double Tire Size</td><td>12-20 tubeless tire</td></tr>
+                <tr><td>Double Tire Air Pressure</td><td>0.63 Mpa</td></tr>
+                <tr><td>Double Tire Load Capacity</td><td>3.25t</td></tr>
+                <tr><td>Double Tire Wheel Felloe</td><td>8.5v-20</td></tr>
+                <tr><td>First Axle Toe-in</td><td>1~3mm</td></tr>
+                <tr><td>Second Axle Toe-in</td><td>5~8mm</td></tr>
+                <tr><td>Third Axle Toe-in</td><td>8~12mm</td></tr>
+            </table>
+        </table>
+        </section>
+        <section class="applications"><h3>Applications</h3><ul><li>Drilling rig chassis</li>
+<li>Mobile drilling equipment</li>
+<li>Heavy-duty transport</li>
+<li>Oilfield vehicles</li>
+</ul></section>
+        <section class="cta-section">
+            <h3>Interested in Wheels and Tires?</h3>
+            <p>Contact us for detailed specifications, pricing, and customized solutions</p>
+            <a href="index-en.html#contact" class="btn">Request Quote</a>
+            <a href="index-en.html#products" class="btn btn-outline">View More Products</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h4>CHINA KOMAL</h4><p>CHINA KOMAL INTERNATIONAL CO., LTD</p><p>Professional petroleum equipment manufacturer</p></div>
+            <div class="footer-section"><h4>Quick Links</h4><a href="index-en.html">Home</a><a href="index-en.html#products">Products</a><a href="index-en.html#about">About Us</a><a href="index-en.html#contact">Contact</a></div>
+            <div class="footer-section"><h4>Contact Us</h4><p>Email: info@chinakomal.com</p><p>Website: www.chinakomal.com</p><p>Location: Beijing, China</p></div>
         </div>
-</div>
         <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
     </footer>
 </body>

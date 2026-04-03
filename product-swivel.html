@@ -29,12 +29,6 @@
         .product-image img { width: 100%; height: 350px; object-fit: cover; display: block; transition: opacity 0.3s; }
         .product-info h2 { color: #1a365d; font-size: 1.8rem; margin-bottom: 0.75rem; }
         .product-info .price { font-size: 1.5rem; color: #2c5282; font-weight: bold; margin-bottom: 1.5rem; }
-        .product-navigation { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #f7fafc 0%, #ebf8ff 100%); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border-radius: 8px; text-decoration: none; color: #2c5282; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); background: #1a365d; color: white; }
-        .nav-btn .arrow { font-size: 1.2rem; }
-        .nav-btn.prev .arrow { margin-right: 0.25rem; }
-        .nav-btn.next .arrow { margin-left: 0.25rem; }
         .product-info .description { color: #4a5568; line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.9rem; }
         .product-features { background: white; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .product-features h3 { color: #2c5282; margin-bottom: 0.75rem; font-size: 1.2rem; }
@@ -97,18 +91,62 @@
                 <p class="description">The Swivel allows rotation of the drill string while maintaining a sealed connection for drilling fluid circulation.</p>
             </div>
         </div>
-        <!-- Product Navigation -->
-        <div class="product-navigation">
-            <a href="product-hook.html" class="nav-btn prev">
-                <span class="arrow">←</span>
-                <span>Previous: Hook</span>
-            </a>
-            <a href="product-rotary-table.html" class="nav-btn next">
-                <span>Next: Rotary Table</span>
-                <span class="arrow">→</span>
-            </a>
+        <section class="product-features">
+            <h3>Key Features</h3>
+            <ul class="feature-list"><li><strong>Hanging ring</strong> - Standard with alloyed pipe nipple</li>
+<li><strong>Washing pipe</strong> - Boxlike structure for rapid change</li>
+<li><strong>Gooseneck tube</strong> - Through-hole for cable passage</li>
+<li><strong>Tie-in</strong> - API standard 5B screw thread</li>
+<li><strong>Certification</strong> - API Spec 8A regulation</li>
+<li><strong>Optional</strong> - Double-purpose with spinner</li>
+</ul>
+        </section>
+        <section class="specifications">
+            <h3>Technical Specifications</h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>SL90</th>
+                        <th>SL135</th>
+                        <th>SL225</th>
+                        <th>SL450</th>
+                        <th>SL585</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Biggest dead load (kN)</td><td>900</td><td>1350</td><td>2250</td><td>4500</td><td>5850</td></tr>
+                    <tr><td>Highest revolution (r/min)</td><td>300</td><td>300</td><td>300</td><td>300</td><td>300</td></tr>
+                    <tr><td>Highest working pressure (MPa/psi)</td><td>25 (3570)</td><td>35 (5000)</td><td>35 (5000)</td><td>35 (5000)</td><td>35 (5000)</td></tr>
+                    <tr><td>Clearance (mm in)</td><td>435 (17⅛″)</td><td>495 (19½″)</td><td>540 (21¼″)</td><td>549 (21⅝″)</td><td>584 (23″)</td></tr>
+                    <tr><td>Central duct (mm in)</td><td>64 (2½″)</td><td>64 (2½″)</td><td>75 (3″)</td><td>75 (3″)</td><td>75 (3″)</td></tr>
+                    <tr><td>Upper screw (API regular)</td><td>4½ REG LH</td><td>4½ REG LH</td><td>6⅝ REG LH</td><td>7⅝ REG LH</td><td>7⅝ REG LH</td></tr>
+                    <tr><td>Under-part screw (API regular)</td><td>6⅝ REG LH</td><td>6⅝ REG LH</td><td>6⅝ REG LH</td><td>6⅝ REG LH</td><td>6⅝ REG LH</td></tr>
+                    <tr><td>Gooseneck tube tie-in screw</td><td>3″-8 teeth/inch</td><td>3″-8 teeth/inch</td><td>4″-8 teeth/inch</td><td>4″-8 teeth/inch</td><td>4″-8 teeth/inch</td></tr>
+                    <tr><td>Shape size (L×W×H mm)</td><td>2505×758×840</td><td>2505×758×840</td><td>2880×1026×1065</td><td>3015×1096×1065</td><td>3115×1224×990</td></tr>
+                    <tr><td>Weight (kg)</td><td>940</td><td>1345</td><td>2402</td><td>3310</td><td>3530</td></tr>
+                </tbody>
+            </table>
+        </table>
+        </section>
+        <section class="applications"><h3>Applications</h3><ul><li>Drilling fluid circulation</li>
+<li>Drill string rotation</li>
+<li>Kelly drive systems</li>
+<li>Rotary drilling</li>
+</ul></section>
+        <section class="cta-section">
+            <h3>Interested in Swivel?</h3>
+            <p>Contact us for detailed specifications, pricing, and customized solutions</p>
+            <a href="index-en.html#contact" class="btn">Request Quote</a>
+            <a href="index-en.html#products" class="btn btn-outline">View More Products</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h4>CHINA KOMAL</h4><p>CHINA KOMAL INTERNATIONAL CO., LTD</p><p>Professional petroleum equipment manufacturer</p></div>
+            <div class="footer-section"><h4>Quick Links</h4><a href="index-en.html">Home</a><a href="index-en.html#products">Products</a><a href="index-en.html#about">About Us</a><a href="index-en.html#contact">Contact</a></div>
+            <div class="footer-section"><h4>Contact Us</h4><p>Email: info@chinakomal.com</p><p>Website: www.chinakomal.com</p><p>Location: Beijing, China</p></div>
         </div>
-</div>
         <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
     </footer>
 </body>
