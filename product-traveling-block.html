@@ -29,6 +29,12 @@
         .product-image img { width: 100%; height: 350px; object-fit: cover; display: block; transition: opacity 0.3s; }
         .product-info h2 { color: #1a365d; font-size: 1.8rem; margin-bottom: 0.75rem; }
         .product-info .price { font-size: 1.5rem; color: #2c5282; font-weight: bold; margin-bottom: 1.5rem; }
+        .product-navigation { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #f7fafc 0%, #ebf8ff 100%); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; background: white; border-radius: 8px; text-decoration: none; color: #2c5282; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); background: #1a365d; color: white; }
+        .nav-btn .arrow { font-size: 1.2rem; }
+        .nav-btn.prev .arrow { margin-right: 0.25rem; }
+        .nav-btn.next .arrow { margin-left: 0.25rem; }
         .product-info .description { color: #4a5568; line-height: 1.5; margin-bottom: 1.2rem; font-size: 0.9rem; }
         .product-features { background: white; border-radius: 12px; padding: 1.2rem; margin-bottom: 1.2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .product-features h3 { color: #2c5282; margin-bottom: 0.75rem; font-size: 1.2rem; }
@@ -90,6 +96,18 @@
                 <p class="price">Professional Drilling Equipment</p>
                 <p class="description">The Traveling Block is a movable pulley assembly that travels up and down the derrick, working with the crown block to provide mechanical advantage for lifting loads.</p>
             </div>
+        </div>
+        
+        <!-- Product Navigation -->
+        <div class="product-navigation">
+            <a href="product-crown-block.html" class="nav-btn prev">
+                <span class="arrow">←</span>
+                <span>Previous: Crown Block</span>
+            </a>
+            <a href="product-hook.html" class="nav-btn next">
+                <span>Next: Hook</span>
+                <span class="arrow">→</span>
+            </a>
         </div>
         <section class="product-features">
             <h3>Key Features</h3>
