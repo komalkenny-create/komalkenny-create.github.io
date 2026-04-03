@@ -21,26 +21,14 @@
         .breadcrumb span { color: #718096; margin: 0 0.5rem; }
         .product-main { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
-        .product-image { 
-            border-radius: 15px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
-            width: 90%; 
-            height: 90%; 
-            margin: 0 auto; 
-        }
-        .product-image img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: contain; 
-            display: block; 
-            background: #f8f9fa;
-        }
         .image-gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
         .gallery-item { border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid transparent; }
         .gallery-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
         .gallery-item.active { border-color: #2c5282; }
         .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; }
+                .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; display: flex; align-items: center; justify-content: center; min-height: 350px; }
+        .product-image img { width: 100%; max-width: 500px; height: auto; max-height: 400px; object-fit: contain; display: block; }
+
         .product-info h2 { color: #1a365d; font-size: 2rem; margin-bottom: 1rem; }
         .product-info .price { font-size: 1.5rem; color: #2c5282; font-weight: bold; margin-bottom: 1.5rem; }
         .product-info .description { color: #4a5568; line-height: 1.8; margin-bottom: 2rem; }
@@ -84,9 +72,7 @@
             .product-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .image-gallery { grid-template-columns: repeat(3, 1fr); }
-            .product-image { width: 90%; height: auto; margin: 0 auto; }
-            .product-image img { height: auto; min-height: 280px; }
-            .spec-table { font-size: 0.7rem; }
+                    .spec-table { font-size: 0.7rem; }
         }
     </style>
 </head>
