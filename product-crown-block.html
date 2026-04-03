@@ -17,8 +17,14 @@
         .breadcrumb a:hover { text-decoration: underline; }
         .breadcrumb span { color: #718096; margin: 0 0.5rem; }
         .product-main { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        .image-gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
+        .gallery-item { border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid transparent; }
+        .gallery-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .gallery-item.active { border-color: #2c5282; }
+        .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; transition: opacity 0.3s; }
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
         .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; display: flex; align-items: center; justify-content: center; min-height: 350px; }
+        .product-image img { width: 100%; height: 350px; object-fit: cover; display: block; transition: opacity 0.3s; }
         .product-image-placeholder { text-align: center; color: #718096; }
         .product-image-placeholder .icon { font-size: 8rem; margin-bottom: 1rem; }
         .product-info h2 { color: #1a365d; font-size: 2rem; margin-bottom: 0.75rem; }
@@ -85,13 +91,16 @@
     </div>
     
     <main class="product-main">
+        <div class="image-gallery">
+            <div class="gallery-item active" onclick="changeMainImage(this, 'images/crown-block.png')"><img src="images/crown-block.png" alt="Crown Block - View 1" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/crown-block-2.png')"><img src="images/crown-block-2.png" alt="Crown Block - View 2" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/crown-block-3.png')"><img src="images/crown-block-3.png" alt="Crown Block - View 3" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/crown-block-4.png')"><img src="images/crown-block-4.png" alt="Crown Block - View 4" onerror="this.parentElement.style.display='none'"></div>
+            <div class="gallery-item" onclick="changeMainImage(this, 'images/crown-block-5.png')"><img src="images/crown-block-5.png" alt="Crown Block - View 5" onerror="this.parentElement.style.display='none'"></div>
+        </div>
         <div class="product-grid">
             <div class="product-image">
-                <div class="product-image-placeholder">
-                    <div class="icon">⚙️</div>
-                    <p>Crown Block</p>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Drilling Rig Derrick Top Assembly</p>
-                </div>
+                <img id="mainImage" src="images/crown-block.png" alt="Crown Block - Main View" style="opacity: 1;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'product-image-placeholder\'><div class=\'icon\'>⚙️</div><p>Crown Block</p><p style=\'font-size: 0.9rem; margin-top: 0.5rem;\'>Drilling Rig Derrick Top Assembly</p></div>'">
             </div>
             <div class="product-info">
                 <h2>Crown Block</h2>
@@ -184,5 +193,33 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
     </footer>
+    <script>
+        function changeMainImage(thumbnail, src) {
+            const mainImg = document.getElementById('mainImage');
+            
+            // Fade out
+            mainImg.style.transition = 'opacity 0.3s ease';
+            mainImg.style.opacity = '0';
+            
+            // Change image after fade out completes
+            setTimeout(() => {
+                mainImg.src = src;
+                // Wait for image to load, then fade in
+                mainImg.onload = () => {
+                    mainImg.style.opacity = '1';
+                };
+                // Fallback in case image is cached
+                if (mainImg.complete) {
+                    mainImg.style.opacity = '1';
+                }
+            }, 300);
+            
+            // Update active state on thumbnails
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            thumbnail.classList.add('active');
+        }
+    </script>
 </body>
 </html>
