@@ -23,9 +23,7 @@
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
         /* 关键修改：缩小主图容器尺寸，同时保持图片填满容器 */
         /* 保持图片填满缩小后的容器 */
-                .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; display: flex; align-items: center; justify-content: center; min-height: 350px; }
-        .product-image img { width: 100%; max-width: 500px; height: auto; max-height: 400px; object-fit: contain; display: block; }
-
+        
         .product-navigation { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #f7fafc 0%, #ebf8ff 100%); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: white; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid transparent; }
         .nav-btn.prev { background: #1a365d; color: white; }
@@ -103,15 +101,8 @@
         <a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="#">Solids Control System</a><span>›</span><strong>Shale Shaker</strong>
     </div>
     <main class="product-main">
-        <div class="image-gallery">
-            <div class="gallery-item active" onclick="changeMainImage(this, 'images/products/shale-shaker-01.jpg')"><img src="images/products/shale-shaker-01.jpg" alt="Shale Shaker - View 1"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-02.jpg')"><img src="images/products/shale-shaker-02.jpg" alt="Shale Shaker - View 2"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-03.jpg')"><img src="images/products/shale-shaker-03.jpg" alt="Shale Shaker - View 3"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-04.jpg')"><img src="images/products/shale-shaker-04.jpg" alt="Shale Shaker - View 4"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-05.jpg')"><img src="images/products/shale-shaker-05.jpg" alt="Shale Shaker - View 5"></div>
-        </div>
         <div class="product-grid">
-            <div class="product-image"><img id="mainImage" src="images/products/shale-shaker-01.jpg" alt="Shale Shaker - Main View"></div>
+            <div class="product-image"><img src="images/产品卡片图/shale-shaker-new-01.png" alt="Product - Main View"></div>
             <div class="product-info">
                 <h2>Shale Shaker</h2>
                 <p class="price">Professional Solids Control Equipment</p>
