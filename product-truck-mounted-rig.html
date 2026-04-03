@@ -83,13 +83,6 @@
     </nav>
     <div class="breadcrumb"><a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=petroleum">Drilling Equipment</a><span>›</span><strong>Truck Mounted Rig</strong></div>
     <main class="product-main">
-        <div class="image-gallery">
-            <div class="gallery-item active" onclick="changeMainImage(this, 'images/truck-mounted-rig-product.png')"><img src="images/truck-mounted-rig-product.png" alt="Truck Mounted Drilling Rig - View 1"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/XJ750.png')"><img src="images/XJ750.png" alt="Truck Mounted Drilling Rig - View 2"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/XJ750.jpg')"><img src="images/XJ750.jpg" alt="Truck Mounted Drilling Rig - View 3"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/truck-mounted-rig-product.png')"><img src="images/truck-mounted-rig-product.png" alt="Truck Mounted Drilling Rig - View 4"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/XJ750.png')"><img src="images/XJ750.png" alt="Truck Mounted Drilling Rig - View 5"></div>
-        </div>
         <div class="product-grid">
             <div class="product-image"><img id="mainImage" src="images/truck-mounted-rig-product.png" alt="Truck Mounted Drilling Rig - Main View" style="opacity: 1;"></div>
             <div class="product-info">
@@ -171,33 +164,5 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
     </footer>
-    <script>
-        function changeMainImage(thumbnail, src) {
-            const mainImg = document.getElementById('mainImage');
-            
-            // Fade out
-            mainImg.style.transition = 'opacity 0.3s ease';
-            mainImg.style.opacity = '0';
-            
-            // Change image after fade out completes
-            setTimeout(() => {
-                mainImg.src = src;
-                // Wait for image to load, then fade in
-                mainImg.onload = () => {
-                    mainImg.style.opacity = '1';
-                };
-                // Fallback in case image is cached
-                if (mainImg.complete) {
-                    mainImg.style.opacity = '1';
-                }
-            }, 300);
-            
-            // Update active state on thumbnails
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            thumbnail.classList.add('active');
-        }
-    </script>
 </body>
 </html>
