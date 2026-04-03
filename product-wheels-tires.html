@@ -20,11 +20,6 @@
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
         .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
         .product-image img { width: 100%; height: 350px; object-fit: cover; display: block; }
-        .image-gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
-        .gallery-item { border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid transparent; }
-        .gallery-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-        .gallery-item.active { border-color: #2c5282; }
-        .gallery-item img { width: 100%; height: 120px; object-fit: cover; display: block; transition: opacity 0.3s; }
         .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; }
         .product-image img { width: 100%; height: 350px; object-fit: cover; display: block; transition: opacity 0.3s; }
         .product-info h2 { color: #1a365d; font-size: 1.8rem; margin-bottom: 0.75rem; }
@@ -94,12 +89,6 @@
     </nav>
     <div class="breadcrumb"><a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=petroleum">Drilling Equipment</a><span>›</span><strong>Wheels Tires</strong></div>
     <main class="product-main">
-        <div class="image-gallery">
-            <div class="gallery-item active" onclick="changeMainImage(this, 'images/products/shale-shaker-01.jpg')"><img src="images/products/drilling-equipment-01.jpg" alt="Shale Shaker - View 1"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-02.jpg')"><img src="images/products/shale-shaker-02.jpg" alt="Shale Shaker - View 2"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-03.jpg')"><img src="images/products/shale-shaker-03.jpg" alt="Shale Shaker - View 3"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-04.jpg')"><img src="images/products/shale-shaker-04.jpg" alt="Shale Shaker - View 4"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-05.jpg')"><img src="images/products/shale-shaker-05.jpg" alt="Shale Shaker - View 5"></div>
         </div>
         <div class="product-grid">
             <div class="product-image"><img src="images/产品卡片图/wheels and tires.png" alt="Product - Main View"></div>
