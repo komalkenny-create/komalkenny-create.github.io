@@ -18,9 +18,21 @@
         .breadcrumb span { color: #718096; margin: 0 0.5rem; }
         .product-main { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
-        .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; display: flex; align-items: center; justify-content: center; min-height: 350px; }
         .product-image-placeholder { text-align: center; color: #718096; }
         .product-image-placeholder .icon { font-size: 8rem; margin-bottom: 1rem; }
+                .product-image { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #f8f9fa; display: flex; align-items: center; justify-content: center; min-height: 350px; }
+        .product-image img { width: 100%; max-width: 500px; height: auto; max-height: 400px; object-fit: contain; display: block; }
+
+        .product-navigation { display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, #f7fafc 0%, #ebf8ff 100%); border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .nav-btn { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: white; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid transparent; }
+        .nav-btn.prev { background: #1a365d; color: white; }
+        .nav-btn.prev:hover { background: #0f2744; box-shadow: 0 4px 8px rgba(26,54,93,0.3); }
+        .nav-btn.next { background: white; color: #1a365d; }
+        .nav-btn.next:hover { background: #f7fafc; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+        .nav-btn .arrow { font-size: 1.2rem; }
+        .nav-btn.prev .arrow { margin-right: 0.25rem; }
+        .nav-btn.next .arrow { margin-left: 0.25rem; }
+
         .product-info h2 { color: #1a365d; font-size: 2rem; margin-bottom: 0.75rem; }
         .product-info .subtitle { font-size: 1.1rem; color: #2c5282; font-weight: 600; margin-bottom: 1rem; }
         .product-info .description { color: #4a5568; line-height: 1.8; margin-bottom: 1.2rem; font-size: 0.95rem; }
@@ -133,6 +145,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+                <!-- Product Navigation -->
+        <div class="product-navigation">
+            <a href="product-vertical-cutting-dryer.html" class="nav-btn prev">
+                <span class="arrow">←</span>
+                <span>Previous: Vertical Cutting Dryer</span>
+            </a>
+            <a href="product-pneumatic-vacuum-pump.html" class="nav-btn next">
+                <span>Next: Pneumatic Vacuum Pump</span>
+                <span class="arrow">→</span>
+            </a>
         </div>
 
         <section class="product-features">
