@@ -83,15 +83,8 @@
     </nav>
     <div class="breadcrumb"><a href="index-en.html">Home</a><span>›</span><a href="index-en.html#products">Products</a><span>›</span><a href="series.html?s=petroleum">Drilling Equipment</a><span>›</span><strong>Elevator Links</strong></div>
     <main class="product-main">
-        <div class="image-gallery">
-            <div class="gallery-item active" onclick="changeMainImage(this, 'images/products/shale-shaker-01.jpg')"><img src="images/products/drilling-equipment-01.jpg" alt="Shale Shaker - View 1"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-02.jpg')"><img src="images/products/shale-shaker-02.jpg" alt="Shale Shaker - View 2"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-03.jpg')"><img src="images/products/shale-shaker-03.jpg" alt="Shale Shaker - View 3"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-04.jpg')"><img src="images/products/shale-shaker-04.jpg" alt="Shale Shaker - View 4"></div>
-            <div class="gallery-item" onclick="changeMainImage(this, 'images/products/shale-shaker-05.jpg')"><img src="images/products/shale-shaker-05.jpg" alt="Shale Shaker - View 5"></div>
-        </div>
         <div class="product-grid">
-            <div class="product-image"><img id="mainImage" src="images/products/drilling-equipment-01.jpg" alt="Shale Shaker - Main View"></div>
+            <div class="product-image"><img src="images/产品卡片图/elevator links.png" alt="Elevator Links - Main View"></div>
             <div class="product-info">
                 <h2>Single Arm Elevator Links</h2>
                 <p class="price">Professional Drilling Equipment</p>
@@ -150,23 +143,5 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 CHINA KOMAL INTERNATIONAL CO., LTD. All rights reserved.</p></div>
     </footer>
-    <script>
-        function changeMainImage(thumbnail, src) {
-            // Update main image with fade effect
-            const mainImg = document.getElementById('mainImage');
-            mainImg.style.opacity = '0';
-            
-            setTimeout(() => {
-                mainImg.src = src;
-                mainImg.style.opacity = '1';
-            }, 150);
-            
-            // Update active state on thumbnails
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            thumbnail.classList.add('active');
-        }
-    </script>
 </body>
 </html>
